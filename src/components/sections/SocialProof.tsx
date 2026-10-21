@@ -5,12 +5,14 @@ import { Reveal } from "../Reveal";
 import { SocialIcon } from "../SocialIcon";
 
 export function SocialProof({ t }: { t: Dictionary }) {
+  // "78 mil" / "1,2 M" in Spanish, "78.4K" / "1.2M" in English.
+  const format = new Intl.NumberFormat(t.locale, { notation: "compact", maximumFractionDigits: 1 });
   return (
     <section aria-label={t.proof.label} className="bg-white">
       <div className="container-wide py-10 lg:py-12">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
           {t.proof.items.map((item, i) => {
-            const social = site.socials.find((s) => s.id === item.key);
+            const social = site.socials.find((s) => item.key.startsWith(s.id));
             return (
               <Reveal key={item.key} index={i} className="flex flex-col-reverse gap-1 border-l-2 border-celeste-300 pl-4">
                 <dt className="flex items-center gap-2 text-small text-piedra-600">
@@ -18,7 +20,7 @@ export function SocialProof({ t }: { t: Dictionary }) {
                   {item.label}
                 </dt>
                 <dd className="font-display text-m-h2 font-extrabold text-tinta-900 md:text-h2">
-                  {site.metrics[item.key as keyof typeof site.metrics]}
+                  {format.format(site.metrics[item.key as keyof typeof site.metrics])}
                 </dd>
               </Reveal>
             );

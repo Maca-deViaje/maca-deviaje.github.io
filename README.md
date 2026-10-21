@@ -58,10 +58,11 @@ This copies `tokens.json`, the favicons and the logos from `../design-system`, f
 
 ## Before launch: checklist
 
-- [ ] **Replace every `[bracketed]` placeholder** in `src/content/site.ts`: follower counts, engagement, audience split and prices, all from the Media Kit. They show on the page on purpose, so nothing launches with invented numbers. Find them with `grep -n "\[" src/content/site.ts`.
+- [x] Follower counts: real public numbers since 2026-10-21 (`metrics` in `site.ts`). Update them now and then.
+- [ ] **Replace the remaining `[bracketed]` placeholders** in `src/content/site.ts`: audience split and prices, from the Media Kit. They show on the page on purpose, so nothing launches with invented numbers. Find them with `grep -n "\[" src/content/site.ts`.
 - [ ] **Add photos** to `public/photos/`. Until then each slot shows which shot from the brief belongs there.
 - [ ] **Course link:** set `courseUrl` in `site.ts`. Until it's set, the course button opens an email with the subject pre-filled.
-- [ ] **Confirm** the YouTube URL (`@macadeviaje`) and the arrival year on the stamp (`since: "2019"`). The brand guide flags the year as one to check.
+- [ ] **Confirm** the arrival year on the stamp (`since: "2019"`). The brand guide flags it as one to check.
 - [ ] **Impressum and Datenschutzerklärung:** a commercial site run from Germany legally needs both (§5 DDG, GDPR). Add the pages and link them in `Footer.tsx`. If you add a form backend, the privacy policy has to name it.
 - [ ] Add `partners` and `testimonials` in `site.ts` once they're real. Each block appears automatically when its list isn't empty.
 - [ ] Set `NEXT_PUBLIC_FORM_ENDPOINT` so enquiries arrive even from people without a mail app set up.

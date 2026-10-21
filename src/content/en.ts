@@ -60,7 +60,7 @@ export const en: Dictionary = {
       { key: "instagram", label: "Instagram followers" },
       { key: "tiktok", label: "TikTok followers" },
       { key: "youtube", label: "YouTube subscribers" },
-      { key: "engagement", label: "avg. engagement (90 days)" },
+      { key: "tiktokLikes", label: "TikTok likes" },
     ],
     base: "Based in Schleswig-Holstein · near Hamburg · available for travel across Europe",
   },

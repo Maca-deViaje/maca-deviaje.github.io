@@ -66,7 +66,7 @@ export const es = {
       { key: "instagram", label: "seguidores en Instagram" },
       { key: "tiktok", label: "seguidores en TikTok" },
       { key: "youtube", label: "suscriptores en YouTube" },
-      { key: "engagement", label: "engagement promedio (90 días)" },
+      { key: "tiktokLikes", label: "me gusta en TikTok" },
     ],
     base: "Base en Schleswig-Holstein · cerca de Hamburgo · disponible para viajes en Europa",
   },

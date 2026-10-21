@@ -19,15 +19,15 @@ export const site = {
   socials: [
     { id: "instagram", label: "Instagram", handle: "@maca.deviaje", href: "https://www.instagram.com/maca.deviaje/" },
     { id: "tiktok", label: "TikTok", handle: "@maca.deviaje", href: "https://www.tiktok.com/@maca.deviaje" },
-    // Check this handle; the channel name is "Maca De Viaje".
     { id: "youtube", label: "YouTube", handle: "Maca De Viaje", href: "https://www.youtube.com/@macadeviaje" },
   ],
 
+  // Public profile counts, checked 2026-10-21. Formatted per language in SocialProof.
   metrics: {
-    instagram: "[00K]",
-    tiktok: "[00K]",
-    youtube: "[00K]",
-    engagement: "[0,0%]",
+    instagram: 78411,
+    tiktok: 24600,
+    youtube: 780,
+    tiktokLikes: 1200000,
   },
 
   audience: {
