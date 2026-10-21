@@ -1,18 +1,15 @@
-import { ArrowUpRight, BookOpen, Check } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import type { Dictionary } from "@/content/es";
 import { site } from "@/content/site";
-import { Button } from "../Button";
 import { Reveal } from "../Reveal";
 
-// Separate product, separate treatment: a Nordsee "ticket" with a tear-off stub,
-// its own badge and the page's only Raps (highlight) button.
+// Separate product with its own brand: a compact card in the "Alemán x Maca" look from macadeviaje.com
+// (logo, warm beige, brick-red pill button) that links out to the course site.
 export function Course({ t }: { t: Dictionary }) {
   const c = t.course;
-  const href = site.courseUrl || `mailto:${site.email}?subject=${encodeURIComponent(c.mailSubject)}`;
-  const external = Boolean(site.courseUrl);
 
   return (
-    <section id="curso" aria-labelledby="course-title" className="section">
+    <section id="curso" aria-labelledby="course-title" className="py-16 md:py-20">
       <div className="container-wide">
         <Reveal>
           <p className="flex items-center gap-4 font-sans text-overline uppercase text-piedra-600">
@@ -23,63 +20,43 @@ export function Course({ t }: { t: Dictionary }) {
         </Reveal>
 
         <Reveal index={1} className="mt-8">
-          <article className="relative grid overflow-hidden rounded-lg bg-nordsee-900 text-leinen-50 lg:grid-cols-[1fr_auto_340px]">
-            {/* Main part of the ticket */}
-            <div className="p-7 sm:p-10 lg:p-14">
-              <span className="inline-flex items-center gap-2 rounded-full bg-raps-200 px-3 py-1.5 text-[12px] font-bold uppercase tracking-[.08em] text-tinta-900">
-                <BookOpen className="size-4" strokeWidth={1.75} aria-hidden />
-                {c.badge}
-              </span>
-              <h2 id="course-title" className="type-h2 mt-6 max-w-[18ch] text-leinen-50">
+          <article className="mx-auto grid max-w-[1040px] items-center gap-6 rounded-[28px] bg-gradient-to-br from-[#F5EFE6] to-[#EADBD2] p-6 ring-1 ring-[#E8DFD4] sm:p-8 md:grid-cols-[220px_1fr] md:gap-10 xl:grid-cols-[240px_1fr_auto] xl:p-10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/course/aleman-x-maca.webp"
+              alt={c.logoAlt}
+              width={560}
+              height={215}
+              loading="lazy"
+              className="mx-auto w-[200px] md:mx-0 md:w-full"
+            />
+
+            <div className="text-center md:text-left">
+              <h2
+                id="course-title"
+                className="font-display text-[24px] font-extrabold leading-tight tracking-[-0.02em] text-tinta-900 sm:text-[28px]"
+              >
                 {c.title}
               </h2>
-              <p className="mt-5 max-w-prose text-lead text-leinen-50/80">{c.text}</p>
-
-              <ul className="mt-8 grid gap-5 sm:grid-cols-3">
-                {c.benefits.map((b) => (
-                  <li key={b.title}>
-                    <Check className="size-5 text-raps-400" strokeWidth={1.75} aria-hidden />
-                    <p className="mt-2 font-semibold text-leinen-50">{b.title}</p>
-                    <p className="mt-1 text-small font-normal text-leinen-50/70">{b.text}</p>
+              <p className="mt-2 text-body text-piedra-600">{c.text}</p>
+              <ul className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 md:justify-start">
+                {c.points.map((p) => (
+                  <li key={p} className="flex items-center gap-1.5 text-small font-semibold text-tinta-900">
+                    <Check className="size-4 text-[#A93636]" strokeWidth={2.25} aria-hidden />
+                    {p}
                   </li>
                 ))}
               </ul>
-
-              <div className="mt-10">
-                <Button
-                  href={href}
-                  variant="highlight"
-                  size="lg"
-                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                >
-                  {c.cta} <ArrowUpRight className="size-5" strokeWidth={1.75} aria-hidden />
-                </Button>
-              </div>
             </div>
 
-            {/* Perforation between main ticket and stub */}
-            <div
-              aria-hidden
-              className="relative mx-7 border-t-2 border-dashed border-leinen-50/25 lg:mx-0 lg:my-7 lg:border-l-2 lg:border-t-0"
+            <a
+              href={site.courseUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 justify-self-center rounded-full bg-[#A93636] px-6 py-3.5 font-semibold text-white shadow-sm transition-colors duration-base ease-warm hover:bg-[#8E2C2C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A93636] md:col-start-2 md:justify-self-start xl:col-start-3"
             >
-              <span className="absolute -left-[38px] -top-[11px] size-5 rounded-full bg-leinen-50 lg:-left-[11px] lg:-top-[38px]" />
-              <span className="absolute -right-[38px] -top-[11px] size-5 rounded-full bg-leinen-50 lg:-bottom-[38px] lg:-left-[11px] lg:right-auto lg:top-auto" />
-            </div>
-
-            {/* Stub */}
-            <div className="flex flex-col justify-between gap-8 p-7 sm:p-10 lg:p-10">
-              <div>
-                <p className="font-mono text-[13px] font-bold tracking-[.2em] text-leinen-50/70">{c.route}</p>
-                <p className="mt-6 text-small text-leinen-50/70">{c.wordsLabel}</p>
-                <ul className="mt-3 flex flex-wrap gap-2" lang="de">
-                  {c.words.map((w) => (
-                    <li key={w} className="rounded-full bg-nordsee-700 px-3.5 py-1.5 text-small font-normal text-leinen-50">
-                      {w}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              {c.cta} <ArrowUpRight className="size-5" strokeWidth={1.75} aria-hidden />
+            </a>
           </article>
         </Reveal>
       </div>

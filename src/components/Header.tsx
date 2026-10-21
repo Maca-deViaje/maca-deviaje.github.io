@@ -1,14 +1,16 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { Dictionary } from "@/content/es";
+import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { buttonClass } from "./Button";
 import { Wordmark } from "./Wordmark";
 
-// Wordmark left, max 5 links, active link underlined in Raps, one pill CTA.
+// Wordmark left, section links, active link underlined in Raps, one pill CTA. The German course is a
+// separate site, so its link sits apart from the section links, on the right, with an external-link arrow.
 // Mobile: wordmark + "Menú" text button opening a full-height Leinen sheet.
 export function Header({ t }: { t: Dictionary }) {
   const [open, setOpen] = useState(false);
@@ -79,6 +81,17 @@ export function Header({ t }: { t: Dictionary }) {
 
           <div className="flex items-center gap-4">
             <a
+              href={site.courseUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={t.nav.course.title}
+              className="hidden items-center gap-1 text-[15px] font-semibold text-piedra-600 transition-colors duration-base ease-warm hover:text-celeste-700 lg:inline-flex"
+            >
+              {t.nav.course.label}
+              <ArrowUpRight className="size-4" strokeWidth={2} aria-hidden />
+            </a>
+            <span aria-hidden className="hidden h-5 w-px bg-arena-200 lg:block" />
+            <a
               href={t.nav.switchHref}
               hrefLang={t.locale === "es" ? "en" : "es"}
               className="text-small text-piedra-600 transition-colors duration-base hover:text-celeste-700"
@@ -132,6 +145,16 @@ export function Header({ t }: { t: Dictionary }) {
                   </li>
                 ))}
               </ul>
+              <a
+                href={site.courseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="mt-8 inline-flex items-center gap-1.5 self-start border-t border-arena-200 pt-6 font-display text-[24px] font-extrabold text-piedra-600"
+              >
+                {t.nav.course.long}
+                <ArrowUpRight className="size-6" strokeWidth={2} aria-hidden />
+              </a>
             </nav>
             <div className="container-wide pb-10">
               <a href="#colaboraciones" onClick={() => setOpen(false)} className={buttonClass("primary", "lg", "w-full")}>

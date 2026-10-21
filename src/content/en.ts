@@ -28,10 +28,10 @@ export const en: Dictionary = {
       { href: "#sobre-mi", label: "About" },
       { href: "#contenido", label: "Content" },
       { href: "#colaboraciones", label: "Collaborations" },
-      { href: "#curso", label: "Course" },
       { href: "#contacto", label: "Contact" },
     ],
     cta: "Work with me",
+    course: { label: "Course", long: "German course", title: "German course (opens macadeviaje.com)" },
     menu: "Menu",
     close: "Close",
     switchLabel: "Español",
@@ -309,19 +309,11 @@ export const en: Dictionary = {
 
   course: {
     overline: "Another project by Maca",
-    badge: "Separate product · online course",
+    logoAlt: "Alemán x Maca · idioma sin complicaciones",
     title: "German from scratch, for Spanish speakers.",
-    text: "The course I wish I'd had when I arrived: practical, everyday German, explained in Spanish, no fluff.",
-    benefits: [
-      { title: "Built for Spanish speakers", text: "Explained in Spanish, with comparisons that make it click." },
-      { title: "For real life", text: "Supermarket, doctor, paperwork, work and small talk with the neighbours." },
-      { title: "From zero, at your pace", text: "Never studied German? This is where you start." },
-    ],
-    wordsLabel: "Words you'll use from week one",
-    words: ["Anmeldung", "Termin", "Feierabend", "Kaffee und Kuchen", "Tschüss"],
-    route: "ES → DE",
-    cta: "Tell me about the course",
-    mailSubject: "German course for beginners",
+    text: "Live classes and practical, everyday German, explained in Spanish, no fluff.",
+    points: ["Built for Spanish speakers", "For real life", "From zero, at your pace"],
+    cta: "Go to the German course",
   },
 
   contact: {

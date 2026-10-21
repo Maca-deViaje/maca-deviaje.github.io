@@ -54,10 +54,11 @@ export const es = {
       { href: "#sobre-mi", label: "Sobre mí" },
       { href: "#contenido", label: "Contenido" },
       { href: "#colaboraciones", label: "Colaboraciones" },
-      { href: "#curso", label: "Curso" },
       { href: "#contacto", label: "Contacto" },
     ],
     cta: "Trabajá conmigo",
+    // Separate from the section links: the course lives on its own site.
+    course: { label: "Curso", long: "Curso de alemán", title: "Curso de alemán (se abre macadeviaje.com)" },
     menu: "Menú",
     close: "Cerrar",
     switchLabel: "English",
@@ -343,19 +344,11 @@ export const es = {
 
   course: {
     overline: "Otro proyecto de Maca",
-    badge: "Producto aparte · curso online",
+    logoAlt: "Alemán x Maca · idioma sin complicaciones",
     title: "Alemán desde cero, para hispanohablantes.",
-    text: "El curso que me hubiera gustado tener al llegar: alemán práctico para el día a día, explicado en español y sin vueltas.",
-    benefits: [
-      { title: "Pensado para hispanohablantes", text: "Explicado en español, con las comparaciones que te hacen clic." },
-      { title: "Para la vida real", text: "Supermercado, médico, trámites, trabajo y charla con los vecinos." },
-      { title: "Desde cero, a tu ritmo", text: "Si nunca estudiaste alemán, empezás acá." },
-    ],
-    wordsLabel: "Palabras que vas a usar desde la primera semana",
-    words: ["Anmeldung", "Termin", "Feierabend", "Kaffee und Kuchen", "Tschüss"],
-    route: "ES → DE",
-    cta: "Quiero saber más del curso",
-    mailSubject: "Curso de alemán para principiantes",
+    text: "Clases en vivo y alemán práctico para la vida real, explicado en español y sin vueltas.",
+    points: ["Pensado para hispanohablantes", "Para la vida real", "Desde cero, a tu ritmo"],
+    cta: "Ir al curso de alemán",
   },
 
   contact: {

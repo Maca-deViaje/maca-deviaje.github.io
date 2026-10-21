@@ -13,8 +13,8 @@ export const site = {
   formEndpoint: process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "",
   // Arrival year in Germany, used on the stamp. The brand guide says to confirm it.
   since: "2019",
-  // Course landing page. Until it exists, the course CTA opens an email instead.
-  courseUrl: "",
+  // The German course ("Alemán x Maca") has its own site.
+  courseUrl: "https://macadeviaje.com/",
 
   socials: [
     { id: "instagram", label: "Instagram", handle: "@maca.deviaje", href: "https://www.instagram.com/maca.deviaje/" },
