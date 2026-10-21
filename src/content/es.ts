@@ -136,7 +136,7 @@ export const es = {
     overline: "Contenido",
     title: "Historias que la gente guarda para su próximo viaje.",
     intro:
-      "Cinco pilares, un mismo tono: cercano, honesto y con detalles que sirven de verdad. Estos son mis videos más vistos en Instagram y TikTok.",
+      "Cinco pilares, un mismo tono: cercano, honesto y con detalles que sirven de verdad. Estos son algunos de mis videos más virales.",
     pillars: [
       { label: "Vida en Alemania", accent: "celeste" as Accent },
       { label: "Escapadas", accent: "nordsee" as Accent },

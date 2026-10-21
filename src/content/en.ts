@@ -111,7 +111,7 @@ export const en: Dictionary = {
     overline: "Content",
     title: "Stories people save for their next trip.",
     intro:
-      "Five pillars, one voice: close, honest and full of details that are genuinely useful. These are my most-watched videos on Instagram and TikTok.",
+      "Five pillars, one voice: close, honest and full of details that are genuinely useful. These are some of my most viral videos.",
     pillars: [
       { label: "Life in Germany", accent: "celeste" as Accent },
       { label: "Getaways", accent: "nordsee" as Accent },
