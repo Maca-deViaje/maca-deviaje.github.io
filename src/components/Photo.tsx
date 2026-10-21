@@ -4,7 +4,13 @@ import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { cn } from "@/lib/cn";
 
-const ratios = { "4/5": "aspect-[4/5]", "16/9": "aspect-video", "1/1": "aspect-square", "3/4": "aspect-[3/4]" };
+const ratios = {
+  "4/5": "aspect-[4/5]",
+  "16/9": "aspect-video",
+  "1/1": "aspect-square",
+  "3/4": "aspect-[3/4]",
+  "4/3": "aspect-[4/3]",
+};
 
 // Renders /public{src} when the photo exists, otherwise a branded slot that names the shot
 // (from the Photo Shoot Brief) so it's obvious what still needs to be delivered.

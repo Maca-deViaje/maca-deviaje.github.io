@@ -4,7 +4,13 @@ import { getDictionary, type Locale } from "./i18n";
 
 export function buildMetadata(locale: Locale): Metadata {
   const t = getDictionary(locale);
-  const image = { url: `${t.path}og-image.png`, width: 1200, height: 630, alt: `maca de viaje · ${t.meta.ogTitle}`, type: "image/png" };
+  const image = {
+    url: `${t.path}og-image.png`,
+    width: 1200,
+    height: 630,
+    alt: `maca de viaje · ${t.meta.ogTitle}`,
+    type: "image/png",
+  };
   return {
     metadataBase: new URL(site.url),
     title: t.meta.title,

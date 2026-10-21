@@ -12,7 +12,10 @@
     @apply bg-leinen-50 font-sans text-body text-tinta-900 antialiased;
     font-feature-settings: "ss01";
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-display text-balance;
     font-optical-sizing: auto;
   }
@@ -25,16 +28,32 @@
 }
 
 @layer components {
-  .container-wide { @apply mx-auto w-full max-w-wide px-5 md:px-8 lg:px-10; }
-  .container-content { @apply mx-auto w-full max-w-content px-5 md:px-8 lg:px-10; }
-  .section { @apply py-16 lg:py-24; }
+  .container-wide {
+    @apply mx-auto w-full max-w-wide px-5 md:px-8 lg:px-10;
+  }
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 md:px-8 lg:px-10;
+  }
+  .section {
+    @apply py-16 lg:py-24;
+  }
 
-  .eyebrow { @apply font-sans text-overline uppercase text-piedra-600; }
-  .section-number { @apply font-sans text-overline text-backstein-600; }
+  .eyebrow {
+    @apply font-sans text-overline uppercase text-piedra-600;
+  }
+  .section-number {
+    @apply font-sans text-overline text-backstein-600;
+  }
 
-  .type-display { @apply text-m-display md:text-display; }
-  .type-h1 { @apply text-m-h1 md:text-h1; }
-  .type-h2 { @apply text-m-h2 md:text-h2; }
+  .type-display {
+    @apply text-m-display md:text-display;
+  }
+  .type-h1 {
+    @apply text-m-h1 md:text-h1;
+  }
+  .type-h2 {
+    @apply text-m-h2 md:text-h2;
+  }
 
   .link {
     @apply font-semibold text-celeste-700 underline decoration-celeste-300 decoration-2 underline-offset-4
@@ -66,13 +85,19 @@
   }
 
   .select-chevron {
-    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B6256' stroke-width='1.75' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 20px;
+    background: #fff
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B6256' stroke-width='1.75' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+      no-repeat right 14px center / 20px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
     transition-duration: 1ms !important;
     animation: none !important;
   }

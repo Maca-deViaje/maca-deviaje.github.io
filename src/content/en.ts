@@ -1,5 +1,5 @@
 // English — for international and German tourism boards, PR agencies and brand managers.
-import type { Accent, Dictionary, Format, ServiceIcon } from "./es";
+import type { Accent, Card, Dictionary, Format, ServiceIcon } from "./es";
 
 export const en: Dictionary = {
   locale: "en",
@@ -120,9 +120,39 @@ export const en: Dictionary = {
     ],
     cards: [
       {
+        pillar: "Family & culture",
+        accent: "mate",
+        format: "TikTok",
+        title: "Christmas: dressed up in Argentina, pyjamas in Germany",
+        video: "7176045176555572485",
+        views: 2200000,
+        date: "2022-12-12",
+        quote: "Yo después de haber vivido años en otro país volviendo a mi pueblo a pasar navidad",
+      },
+      {
+        pillar: "Life in Germany",
+        accent: "celeste",
+        format: "TikTok",
+        title: "German tilt-and-turn windows: a rite-of-passage culture shock",
+        video: "7245234077287124250",
+        views: 1900000,
+        date: "2023-06-16",
+        photo: { src: "/photos/tt-7245234077287124250.jpg", caption: "the famous German window" },
+      },
+      {
+        pillar: "Family & culture",
+        accent: "mate",
+        format: "TikTok",
+        title: "The tiger blanket every Latin American misses in Europe",
+        video: "7148730948404743429",
+        views: 1300000,
+        date: "2022-09-29",
+        photo: { src: "/photos/tt-7148730948404743429.jpg", caption: "the tiger blanket, Germany edition" },
+      },
+      {
         pillar: "Getaways",
-        accent: "nordsee" as Accent,
-        format: "TikTok" as Format,
+        accent: "nordsee",
+        format: "TikTok",
         title: "Bad Bunny in Düsseldorf",
         video: "7653908405463026976",
         views: 862500,
@@ -131,8 +161,8 @@ export const en: Dictionary = {
       },
       {
         pillar: "Life in Germany",
-        accent: "celeste" as Accent,
-        format: "TikTok" as Format,
+        accent: "celeste",
+        format: "TikTok",
         title: "Culture shock: how fast German supermarket cashiers are",
         video: "7007891601376677126",
         views: 635900,
@@ -141,45 +171,15 @@ export const en: Dictionary = {
       },
       {
         pillar: "Practical tips",
-        accent: "backstein" as Accent,
-        format: "TikTok" as Format,
+        accent: "backstein",
+        format: "TikTok",
         title: "2 things that can get you a warning at work in Germany",
         video: "7135014787708226821",
         views: 628100,
         date: "2022-08-23",
         photo: { src: "/photos/tt-7135014787708226821.jpg", caption: "Maca sharing her work experience" },
       },
-      {
-        pillar: "Life in Germany",
-        accent: "celeste" as Accent,
-        format: "TikTok" as Format,
-        title: "I call it ✨priorities✨",
-        video: "7078810663946177797",
-        views: 583600,
-        date: "2022-03-24",
-        photo: { src: "/photos/tt-7078810663946177797.jpg", caption: "breakfast in a historic café" },
-      },
-      {
-        pillar: "Food from home",
-        accent: "dulce" as Accent,
-        format: "TikTok" as Format,
-        title: "Homemade quince paste (dulce de membrillo) in Germany",
-        video: "7695807137963969824",
-        views: 195000,
-        date: "2026-10-12",
-        photo: { src: "/photos/tt-7695807137963969824.jpg", caption: "quinces from the garden" },
-      },
-      {
-        pillar: "Family & culture",
-        accent: "mate" as Accent,
-        format: "TikTok" as Format,
-        title: "German love classifieds: 74, house with garden and sauna",
-        video: "7039807765988084998",
-        views: 113400,
-        date: "2021-12-09",
-        photo: { src: "/photos/tt-7039807765988084998.jpg", caption: "Maca laughing" },
-      },
-    ],
+    ] as Card[],
     cardCta: "Watch on TikTok",
     viewsLabel: "views",
     more: "See everything on Instagram",
@@ -236,8 +236,46 @@ export const en: Dictionary = {
     ctaNote: "Tell me your idea and I'll send you a tailored proposal.",
   },
 
-  process: {
+  showcase: {
     number: "04",
+    overline: "Featured collaborations",
+    title: "Brands that already trusted my story.",
+    quoteLabel: "In Maca's words",
+    items: [
+      {
+        id: "timekettle",
+        brand: "Timekettle",
+        product: "W4 Plus translator earbuds",
+        context: "Launch at IFA 2026, Berlin",
+        text: "I showed the translator earbuds in my everyday life in Germany, with exclusive discount codes for my community.",
+        deliverables: ["YouTube Short", "5% official-store code", "10% Amazon code"],
+        image: { src: "/collabs/timekettle-w4plus.jpg", alt: "Timekettle W4 Plus translator earbuds in Maca's hands" },
+        href: "https://www.youtube.com/shorts/ML7ZSGmeRuo",
+        cta: "Watch the Short",
+        logo: "",
+        quote: "",
+        date: "2026-09-10",
+      },
+      {
+        id: "borderframes",
+        brand: "Borderframes × TRAVLR",
+        product: "Bamboo frames shaped like each country",
+        context: "Each frame holds a photo from your trip",
+        text: "My Iceland frame and my words are featured on the Borderframes site, now part of TRAVLR.",
+        deliverables: ["Testimonial", "Photos with the product"],
+        logo: "/collabs/borderframes-logo.svg",
+        // Macarena's own words as published on borderframes.com. Don't paraphrase or translate.
+        quote: "I just love my Iceland frame, and now I cannot wait to connect it to all my memories on TRAVLR.",
+        image: { src: "/collabs/borderframes-macarena.webp", alt: "Maca smiling with her Iceland Borderframe" },
+        href: "https://borderframes.com",
+        cta: "See it on borderframes.com",
+        date: "2026-10-16",
+      },
+    ],
+  },
+
+  process: {
+    number: "05",
     overline: "How we work",
     title: "Simple, clear, and with results you can measure.",
     steps: [
@@ -268,7 +306,7 @@ export const en: Dictionary = {
   },
 
   contact: {
-    number: "05",
+    number: "06",
     overline: "Contact",
     title: "Let's tell your destination's story in Spanish.",
     lead: "If your brand, hotel or tourism board wants to reach Spanish-speaking travellers with stories that build trust, get in touch. I answer every message myself.",

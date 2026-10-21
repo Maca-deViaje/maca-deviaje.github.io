@@ -56,14 +56,31 @@ export function Portfolio({ t }: { t: Dictionary }) {
             <Reveal as="li" key={card.title} index={i}>
               <article className="postal group flex h-full flex-col p-3 pb-5">
                 <div className="relative">
-                  <Photo
-                    src={card.photo.src}
-                    caption={card.photo.caption}
-                    ratio="4/5"
-                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-                  />
+                  {card.photo ? (
+                    <Photo
+                      src={card.photo.src}
+                      caption={card.photo.caption}
+                      ratio="4/5"
+                      sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                    />
+                  ) : (
+                    // No usable frame in the clip: her hook line on a solid Nordsee block.
+                    <div
+                      className="flex aspect-[4/5] flex-col justify-between rounded-md bg-nordsee-900 p-6 pt-14 text-leinen-50"
+                      lang="es"
+                    >
+                      <span aria-hidden className="font-display text-[72px] leading-[0.6] text-raps-400">
+                        “
+                      </span>
+                      <p className="font-display text-[26px] font-extrabold leading-[1.1] tracking-[-0.02em]">{card.quote}</p>
+                      <span className="text-caption text-leinen-50/60">{site.handle}</span>
+                    </div>
+                  )}
                   <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[12px] font-bold uppercase tracking-[.08em] text-tinta-900">
                     {card.format}
+                  </span>
+                  <span className="absolute right-3 top-3 rounded-full bg-raps-400 px-2.5 py-1 text-[12px] font-bold text-tinta-900">
+                    {views.format(card.views)} {c.viewsLabel}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col px-2 pt-4">
@@ -76,9 +93,7 @@ export function Portfolio({ t }: { t: Dictionary }) {
                     {card.pillar}
                   </span>
                   <h3 className="mt-3 text-h4 text-tinta-900">{card.title}</h3>
-                  <p className="mt-2 text-small font-normal text-piedra-600">
-                    {views.format(card.views)} {c.viewsLabel} · {month.format(new Date(card.date))}
-                  </p>
+                  <p className="mt-2 text-small font-normal text-piedra-600">{month.format(new Date(card.date))}</p>
                   <a
                     href={videoHref(card.video)}
                     target="_blank"

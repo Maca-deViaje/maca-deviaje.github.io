@@ -9,8 +9,8 @@ import { Footer } from "./sections/Footer";
 import { Hero } from "./sections/Hero";
 import { Portfolio } from "./sections/Portfolio";
 import { Process } from "./sections/Process";
+import { Showcase } from "./sections/Showcase";
 import { SocialProof } from "./sections/SocialProof";
-import { Solcito } from "./SectionHeading";
 
 export function HomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
@@ -45,7 +45,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         <About t={t} />
         <Portfolio t={t} />
         <Collaborations t={t} />
-        <Solcito />
+        <Showcase t={t} />
         <Process t={t} />
         <Course t={t} />
         <Contact t={t} />

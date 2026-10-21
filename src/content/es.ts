@@ -3,6 +3,19 @@
 
 export type Accent = "celeste" | "nordsee" | "dulce" | "backstein" | "mate";
 export type Format = "Reel" | "TikTok" | "YouTube" | "Carrusel" | "Carousel" | "Stories";
+export type Card = {
+  pillar: string;
+  accent: Accent;
+  format: Format;
+  title: string;
+  video: string;
+  views: number;
+  date: string;
+  /** Frame or cover from the video. */
+  photo?: { src: string; caption: string };
+  /** Shown as a branded text tile when the clip has no usable frame. */
+  quote?: string;
+};
 export type ServiceIcon = "destination" | "tourism" | "youtube" | "social" | "brand";
 
 export const es = {
@@ -126,9 +139,39 @@ export const es = {
     ],
     cards: [
       {
+        pillar: "Familia y cultura",
+        accent: "mate",
+        format: "TikTok",
+        title: "Navidad: en Argentina te re producís, en Alemania la pasan en pijama",
+        video: "7176045176555572485",
+        views: 2200000,
+        date: "2022-12-12",
+        quote: "Yo después de haber vivido años en otro país volviendo a mi pueblo a pasar navidad",
+      },
+      {
+        pillar: "Vida en Alemania",
+        accent: "celeste",
+        format: "TikTok",
+        title: "Las ventanas alemanas: un shock cultural canónico",
+        video: "7245234077287124250",
+        views: 1900000,
+        date: "2023-06-16",
+        photo: { src: "/photos/tt-7245234077287124250.jpg", caption: "la famosa ventana alemana" },
+      },
+      {
+        pillar: "Familia y cultura",
+        accent: "mate",
+        format: "TikTok",
+        title: "La frazada de tigre que todo latino extraña en Europa",
+        video: "7148730948404743429",
+        views: 1300000,
+        date: "2022-09-29",
+        photo: { src: "/photos/tt-7148730948404743429.jpg", caption: "la frazada de tigre, versión Alemania" },
+      },
+      {
         pillar: "Escapadas",
-        accent: "nordsee" as Accent,
-        format: "TikTok" as Format,
+        accent: "nordsee",
+        format: "TikTok",
         title: "Bad Bunny en Düsseldorf",
         video: "7653908405463026976",
         views: 862500,
@@ -137,8 +180,8 @@ export const es = {
       },
       {
         pillar: "Vida en Alemania",
-        accent: "celeste" as Accent,
-        format: "TikTok" as Format,
+        accent: "celeste",
+        format: "TikTok",
         title: "Choque cultural: lo rápido que cobran en el súper alemán",
         video: "7007891601376677126",
         views: 635900,
@@ -147,45 +190,15 @@ export const es = {
       },
       {
         pillar: "Trámites y tips",
-        accent: "backstein" as Accent,
-        format: "TikTok" as Format,
+        accent: "backstein",
+        format: "TikTok",
         title: "2 cosas por las que te pueden amonestar en el trabajo en Alemania",
         video: "7135014787708226821",
         views: 628100,
         date: "2022-08-23",
         photo: { src: "/photos/tt-7135014787708226821.jpg", caption: "Maca contando su experiencia laboral" },
       },
-      {
-        pillar: "Vida en Alemania",
-        accent: "celeste" as Accent,
-        format: "TikTok" as Format,
-        title: "Yo lo llamo ✨prioridades✨",
-        video: "7078810663946177797",
-        views: 583600,
-        date: "2022-03-24",
-        photo: { src: "/photos/tt-7078810663946177797.jpg", caption: "desayuno en un café histórico" },
-      },
-      {
-        pillar: "Comida de casa",
-        accent: "dulce" as Accent,
-        format: "TikTok" as Format,
-        title: "Dulce de membrillo casero en Alemania",
-        video: "7695807137963969824",
-        views: 195000,
-        date: "2026-10-12",
-        photo: { src: "/photos/tt-7695807137963969824.jpg", caption: "membrillos del jardín" },
-      },
-      {
-        pillar: "Familia y cultura",
-        accent: "mate" as Accent,
-        format: "TikTok" as Format,
-        title: "Clasificados de amor en Alemania: 74 años, casa con jardín y sauna",
-        video: "7039807765988084998",
-        views: 113400,
-        date: "2021-12-09",
-        photo: { src: "/photos/tt-7039807765988084998.jpg", caption: "Maca muerta de risa" },
-      },
-    ],
+    ] as Card[],
     cardCta: "Ver en TikTok",
     viewsLabel: "vistas",
     more: "Mirá todo en Instagram",
@@ -242,8 +255,49 @@ export const es = {
     ctaNote: "Contame tu idea y te mando una propuesta a medida.",
   },
 
-  process: {
+  showcase: {
     number: "04",
+    overline: "Colaboraciones destacadas",
+    title: "Marcas que ya confiaron en mi historia.",
+    quoteLabel: "En palabras de Maca",
+    items: [
+      {
+        id: "timekettle",
+        brand: "Timekettle",
+        product: "Auriculares traductores W4 Plus",
+        context: "Lanzamiento en IFA 2026, Berlín",
+        text: "Mostré los auriculares traductores en mi día a día en Alemania, con códigos de descuento exclusivos para mi comunidad.",
+        deliverables: ["YouTube Short", "Código 5% tienda oficial", "Código 10% Amazon"],
+        image: {
+          src: "/collabs/timekettle-w4plus.jpg",
+          alt: "Los auriculares traductores Timekettle W4 Plus en las manos de Maca",
+        },
+        href: "https://www.youtube.com/shorts/ML7ZSGmeRuo",
+        cta: "Ver el Short",
+        logo: "",
+        quote: "",
+        date: "2026-09-10",
+      },
+      {
+        id: "borderframes",
+        brand: "Borderframes × TRAVLR",
+        product: "Marcos de bambú con la forma de cada país",
+        context: "Cada marco guarda una foto de tu viaje",
+        text: "Mi marco de Islandia y mis palabras son parte de la página de Borderframes, ahora parte de TRAVLR.",
+        deliverables: ["Testimonio", "Fotos con el producto"],
+        logo: "/collabs/borderframes-logo.svg",
+        // Macarena's own words as published on borderframes.com. Don't paraphrase or translate.
+        quote: "I just love my Iceland frame, and now I cannot wait to connect it to all my memories on TRAVLR.",
+        image: { src: "/collabs/borderframes-macarena.webp", alt: "Maca sonriendo con su Borderframe de Islandia" },
+        href: "https://borderframes.com",
+        cta: "Ver en borderframes.com",
+        date: "2026-10-16",
+      },
+    ],
+  },
+
+  process: {
+    number: "05",
     overline: "Cómo trabajamos",
     title: "Simple, claro y con resultados que podés medir.",
     steps: [
@@ -274,7 +328,7 @@ export const es = {
   },
 
   contact: {
-    number: "05",
+    number: "06",
     overline: "Contacto",
     title: "Hagamos que tu destino se cuente en español.",
     lead: "Si tu marca, hotel u oficina de turismo quiere llegar a viajeros hispanohablantes con historias que generan confianza, escribime. Respondo yo, personalmente.",
