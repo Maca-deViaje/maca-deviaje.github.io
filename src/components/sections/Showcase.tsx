@@ -8,7 +8,6 @@ import { formatPlatform, SocialIcon } from "../SocialIcon";
 // Featured brand collaborations: real campaigns only, with what was delivered and a link to the proof.
 export function Showcase({ t }: { t: Dictionary }) {
   const s = t.showcase;
-  const month = new Intl.DateTimeFormat(t.locale, { month: "long", year: "numeric", timeZone: "UTC" });
   return (
     <section aria-labelledby="showcase-title" className="section bg-white">
       <div className="container-wide">
@@ -24,7 +23,7 @@ export function Showcase({ t }: { t: Dictionary }) {
                   src={item.image.src}
                   alt={item.image.alt}
                   caption={item.image.alt}
-                  ratio="4/3"
+                  ratio="1/1"
                   sizes="(min-width: 1024px) 560px, 100vw"
                 />
                 <div className="flex flex-1 flex-col px-3 pt-6 sm:px-5">
@@ -35,7 +34,7 @@ export function Showcase({ t }: { t: Dictionary }) {
                     ) : (
                       <p className="font-display text-h3 font-extrabold tracking-[-0.02em] text-tinta-900">{item.brand}</p>
                     )}
-                    <span className="shrink-0 text-small text-piedra-600">{month.format(new Date(item.date))}</span>
+                    <span className="shrink-0 text-small text-piedra-600">{item.period}</span>
                   </div>
                   <h3 className="mt-4 text-h4 text-tinta-900">{item.product}</h3>
                   <p className="text-small text-piedra-600">{item.context}</p>
