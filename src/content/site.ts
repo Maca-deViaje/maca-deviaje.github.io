@@ -36,10 +36,13 @@ export const site = {
     women: "[00%]",
   },
 
+  // Starting prices in EUR, per piece, excl. VAT. Proposed 2026-10-21 from her reach
+  // (IG reels ~25K median plays, TikTok ~2K baseline, YouTube 780 subs) and 2026 market
+  // benchmarks (micro-creator Reel €750–5,000, Story €125–1,000). Confirm with Macarena.
   prices: {
-    reel: "[€000]",
-    youtube: "[€000]",
-    stories: "[€000]",
+    reel: 800, // Instagram Reel + TikTok cross-post
+    stories: 300, // pack of 3–5 Stories with link
+    youtube: 350, // 60–90 s integration
   },
 
   // Brands and destinations already worked with. The block is hidden while empty.

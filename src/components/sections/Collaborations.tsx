@@ -15,6 +15,7 @@ const icons: Record<ServiceIcon, LucideIcon> = {
 
 export function Collaborations({ t }: { t: Dictionary }) {
   const c = t.collabs;
+  const eur = new Intl.NumberFormat(t.locale, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   return (
     <section id="colaboraciones" aria-labelledby="collabs-title" className="section">
       <div className="container-wide">
@@ -25,7 +26,12 @@ export function Collaborations({ t }: { t: Dictionary }) {
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
           {c.services.map((s, i) => {
             const Icon = icons[s.icon];
-            const price = s.price ? `${c.from} ${site.prices[s.price as keyof typeof site.prices]}` : c.onRequest;
+            const keys = s.prices as (keyof typeof site.prices)[];
+            const price = keys.length
+              ? keys
+                  .map((k) => `${keys.length > 1 ? c.priceLabels[k] + ": " : ""}${c.from} ${eur.format(site.prices[k])}`)
+                  .join(" · ")
+              : c.onRequest;
             return (
               <Reveal
                 as="li"
@@ -46,6 +52,7 @@ export function Collaborations({ t }: { t: Dictionary }) {
             );
           })}
         </ul>
+        <p className="mt-4 text-caption text-piedra-600">{c.priceNote}</p>
 
         <Reveal index={1} className="mt-8">
           <div className="grid gap-8 rounded-lg bg-celeste-100 p-6 sm:p-10 lg:grid-cols-12 lg:items-center lg:gap-10">

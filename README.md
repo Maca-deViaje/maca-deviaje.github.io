@@ -59,7 +59,8 @@ This copies `tokens.json`, the favicons and the logos from `../design-system`, f
 ## Before launch: checklist
 
 - [x] Follower counts: real public numbers since 2026-10-21 (`metrics` in `site.ts`). Update them now and then.
-- [ ] **Replace the remaining `[bracketed]` placeholders** in `src/content/site.ts`: audience split and prices, from the Media Kit. They show on the page on purpose, so nothing launches with invented numbers. Find them with `grep -n "\[" src/content/site.ts`.
+- [ ] **Confirm the proposed prices** with Macarena (`prices` in `site.ts`: Reel + TikTok from €800, Stories from €300, YouTube integration from €350, all excl. VAT).
+- [ ] **Replace the remaining `[bracketed]` placeholders** in `src/content/site.ts`: the audience split, from her Instagram/TikTok analytics. They show on the page on purpose, so nothing launches with invented numbers. Find them with `grep -n "\[" src/content/site.ts`.
 - [ ] **Add photos** to `public/photos/`. Until then each slot shows which shot from the brief belongs there.
 - [ ] **Course link:** set `courseUrl` in `site.ts`. Until it's set, the course button opens an email with the subject pre-filled.
 - [ ] **Confirm** the arrival year on the stamp (`since: "2019"`). The brand guide flags it as one to check.
