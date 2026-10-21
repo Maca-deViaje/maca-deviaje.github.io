@@ -1,9 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Shuffle } from "lucide-react";
 import { useEffect, useState } from "react";
-import { buttonClass } from "./Button";
 
 type HeroPhoto = { src: string; alt: string; caption: string };
 
@@ -20,7 +18,7 @@ const EASE = [0.2, 0.7, 0.2, 1] as const;
 const DEAL_STEP = 0.16; // seconds between cards landing
 const SWAP_OUT_MS = 380;
 
-// Framed photos dealt onto a pile one by one; once landed, the top one can be shuffled to the back.
+// Framed photos dealt onto a pile one by one; once landed, clicking the top one sends it to the back.
 export function HeroStack({ photos, shuffleLabel }: { photos: HeroPhoto[]; shuffleLabel: string }) {
   const reduce = useReducedMotion();
   const [order, setOrder] = useState(() => photos.map((_, i) => i)); // order[0] is on top
@@ -90,6 +88,7 @@ export function HeroStack({ photos, shuffleLabel }: { photos: HeroPhoto[]; shuff
                   : { duration: reduce ? 0.3 : 0.6, ease: EASE, delay: reduce ? 0 : dealDelay }
               }
               onClick={isTop ? shuffle : undefined}
+              title={isTop && dealt ? shuffleLabel : undefined}
               aria-hidden={!isTop}
             >
               {isTop && <span className="washi -top-3 left-1/2 z-10 -translate-x-1/2 -rotate-3" aria-hidden />}
@@ -110,26 +109,6 @@ export function HeroStack({ photos, shuffleLabel }: { photos: HeroPhoto[]; shuff
         })}
       </div>
 
-      {/* Phones: round icon button on the stack's top corner (clear of the caption). Larger screens: labelled button below. */}
-      <div className="absolute -right-3 -top-4 z-30 sm:static sm:mt-8 sm:flex sm:justify-end">
-        <motion.button
-          type="button"
-          onClick={shuffle}
-          disabled={!dealt}
-          aria-label={shuffleLabel}
-          className={buttonClass(
-            "secondary",
-            "sm",
-            "size-11 bg-leinen-50 p-0 shadow-postal sm:size-auto sm:bg-transparent sm:px-4 sm:shadow-none",
-          )}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: dealt ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Shuffle className="size-4" strokeWidth={1.75} aria-hidden />
-          <span className="hidden sm:inline">{shuffleLabel}</span>
-        </motion.button>
-      </div>
       <p className="sr-only" aria-live="polite">
         {photos[order[0]].caption}
       </p>

@@ -6,8 +6,7 @@ import { RouteMaps } from "../MiniMap";
 import { Stamp } from "../Stamp";
 
 // Phones/tablet: eyebrow → photo stack (sized to the viewport height) → title → CTAs, so the first
-// screen ends on the buttons. On phones the title overlaps the stack's foot over a paper-coloured fade,
-// with the stamp beside it. Desktop: copy column left, stack right.
+// screen ends on the buttons. On phones the title overlaps the stack's foot over a paper-coloured fade. Desktop: copy column left, stack right.
 export function Hero({ t }: { t: Dictionary }) {
   const h = t.hero;
   return (
@@ -27,7 +26,6 @@ export function Hero({ t }: { t: Dictionary }) {
               <br />
               {h.title}
             </h1>
-            <Stamp className="pointer-events-none absolute -bottom-1 right-0 w-[76px] drop-shadow-sm sm:hidden" />
           </div>
           <p className="order-4 hidden max-w-[34rem] text-lead text-piedra-600 sm:block lg:mt-6">{h.lead}</p>
           <div className="order-5 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-9">
@@ -47,7 +45,7 @@ export function Hero({ t }: { t: Dictionary }) {
         <div className="relative order-2 mx-auto w-[clamp(210px,calc((100svh-390px)*0.748),84vw)] sm:w-full sm:max-w-[420px] lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:max-w-none">
           {/* Stack of framed photos (washi tape on the top one), stamp and the page's one handwritten note. */}
           <HeroStack photos={h.photos} shuffleLabel={h.shuffle} />
-          <Stamp className="pointer-events-none absolute -left-6 bottom-6 z-20 hidden w-28 drop-shadow-sm sm:block lg:-left-12" />
+          <Stamp className="pointer-events-none absolute -bottom-8 -left-6 z-20 hidden w-28 drop-shadow-sm sm:block lg:-left-12" />
           <p
             className="absolute -right-6 -top-12 z-20 hidden rotate-[-4deg] font-hand text-[26px] font-bold leading-none text-celeste-700 lg:block"
             lang="es"
