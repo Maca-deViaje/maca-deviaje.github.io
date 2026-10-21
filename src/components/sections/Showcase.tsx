@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/content/es";
+import { cn } from "@/lib/cn";
 import { Flags } from "../Flag";
 import { LoopClip } from "../LoopClip";
 import { SectionMap } from "../MiniMap";
@@ -23,24 +24,37 @@ export function Showcase({ t }: { t: Dictionary }) {
           {s.items.map((item, i) => (
             <Reveal as="li" key={item.id} index={i}>
               <article className="postal flex h-full flex-col p-3 pb-6">
-                {item.image.clip ? (
-                  <LoopClip
-                    mp4={item.image.clip.mp4}
-                    webm={item.image.clip.webm}
-                    poster={item.image.src}
-                    label={item.image.alt}
+                <div className="relative">
+                  {item.image.clip ? (
+                    <LoopClip
+                      mp4={item.image.clip.mp4}
+                      webm={item.image.clip.webm}
+                      poster={item.image.src}
+                      label={item.image.alt}
+                    />
+                  ) : (
+                    <Photo
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      caption={item.image.alt}
+                      ratio="1/1"
+                      sizes="(min-width: 1024px) 560px, 100vw"
+                    />
+                  )}
+                  {/* Product cutout straddling the bottom edge of the media. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.cutout.src}
+                    alt={item.cutout.alt}
+                    loading="lazy"
+                    className={cn(
+                      "pointer-events-none absolute right-2 z-10 h-auto drop-shadow-[0_18px_22px_rgba(36,33,29,.28)] sm:right-4",
+                      item.cutout.wide ? "-bottom-14 w-[52%]" : "-bottom-16 w-[26%]",
+                    )}
                   />
-                ) : (
-                  <Photo
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    caption={item.image.alt}
-                    ratio="1/1"
-                    sizes="(min-width: 1024px) 560px, 100vw"
-                  />
-                )}
+                </div>
                 <div className="flex flex-1 flex-col px-3 pt-6 sm:px-5">
-                  <div className="flex items-center justify-between gap-4">
+                  <div className={cn("flex flex-col gap-1", item.cutout.wide ? "pr-[52%]" : "pr-[28%]")}>
                     <span className="flex items-center gap-3">
                       {item.logo ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -50,7 +64,7 @@ export function Showcase({ t }: { t: Dictionary }) {
                       )}
                       <Flags codes={item.countries} locale={t.locale} className="[&>img]:h-[18px] [&>img]:w-6" />
                     </span>
-                    <span className="shrink-0 text-small text-piedra-600">{item.period}</span>
+                    <span className="text-small text-piedra-600">{item.period}</span>
                   </div>
                   <h3 className="mt-4 text-h4 text-tinta-900">{item.product}</h3>
                   <p className="text-small text-piedra-600">{item.context}</p>

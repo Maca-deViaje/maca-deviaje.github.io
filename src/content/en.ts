@@ -253,6 +253,7 @@ export const en: Dictionary = {
     items: [
       {
         id: "timekettle",
+        cutout: { src: "/collabs/timekettle-w4-product.webp", alt: "Timekettle W4 translator earbuds and case", wide: false },
         countries: ["cn"],
         brand: "Timekettle",
         product: "W4 and W4 Plus translator earbuds",
@@ -272,6 +273,11 @@ export const en: Dictionary = {
       },
       {
         id: "borderframes",
+        cutout: {
+          src: "/collabs/borderframes-product.webp",
+          alt: "Borderframes of France, Germany, Portugal and Switzerland",
+          wide: true,
+        },
         countries: ["de"],
         brand: "Borderframes × TRAVLR",
         product: "Brand Ambassador · Latin America",

@@ -274,6 +274,11 @@ export const es = {
     items: [
       {
         id: "timekettle",
+        cutout: {
+          src: "/collabs/timekettle-w4-product.webp",
+          alt: "Estuche y auriculares traductores Timekettle W4",
+          wide: false,
+        },
         countries: ["cn"],
         brand: "Timekettle",
         product: "Auriculares traductores W4 y W4 Plus",
@@ -293,6 +298,11 @@ export const es = {
       },
       {
         id: "borderframes",
+        cutout: {
+          src: "/collabs/borderframes-product.webp",
+          alt: "Borderframes de Francia, Alemania, Portugal y Suiza",
+          wide: true,
+        },
         countries: ["de"],
         brand: "Borderframes × TRAVLR",
         product: "Embajadora de marca · Latinoamérica",
