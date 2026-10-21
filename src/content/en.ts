@@ -254,6 +254,7 @@ export const en: Dictionary = {
         deliverables: ["Instagram Reels", "YouTube Short", "Discount codes"],
         image: {
           src: "/collabs/timekettle-ifa.jpg",
+          clip: { mp4: "/collabs/timekettle-ifa.mp4", webm: "/collabs/timekettle-ifa.webm" },
           alt: "Maca holds the Timekettle W4 earbuds up to the camera in front of the Timekettle stand at IFA Berlin",
         },
         href: "https://www.instagram.com/reel/DORF-r9DZGd/",
@@ -272,7 +273,7 @@ export const en: Dictionary = {
         logo: "/collabs/borderframes-logo.svg",
         // Macarena's own words as published on borderframes.com. Don't paraphrase or translate.
         quote: "I just love my Iceland frame, and now I cannot wait to connect it to all my memories on TRAVLR.",
-        image: { src: "/collabs/borderframes-macarena.webp", alt: "Maca smiling with her Iceland Borderframe" },
+        image: { src: "/collabs/borderframes-macarena.webp", clip: null, alt: "Maca smiling with her Iceland Borderframe" },
         href: "https://borderframes.com",
         cta: "See it on borderframes.com",
         period: "2026",

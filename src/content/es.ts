@@ -273,6 +273,7 @@ export const es = {
         deliverables: ["Instagram Reels", "YouTube Short", "Códigos de descuento"],
         image: {
           src: "/collabs/timekettle-ifa.jpg",
+          clip: { mp4: "/collabs/timekettle-ifa.mp4", webm: "/collabs/timekettle-ifa.webm" },
           alt: "Maca muestra los auriculares Timekettle W4 a cámara frente al stand de Timekettle en IFA Berlín",
         },
         href: "https://www.instagram.com/reel/DORF-r9DZGd/",
@@ -291,7 +292,7 @@ export const es = {
         logo: "/collabs/borderframes-logo.svg",
         // Macarena's own words as published on borderframes.com. Don't paraphrase or translate.
         quote: "I just love my Iceland frame, and now I cannot wait to connect it to all my memories on TRAVLR.",
-        image: { src: "/collabs/borderframes-macarena.webp", alt: "Maca sonriendo con su Borderframe de Islandia" },
+        image: { src: "/collabs/borderframes-macarena.webp", clip: null, alt: "Maca sonriendo con su Borderframe de Islandia" },
         href: "https://borderframes.com",
         cta: "Ver en borderframes.com",
         period: "2026",

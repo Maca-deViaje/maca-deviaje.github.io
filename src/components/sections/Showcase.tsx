@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/content/es";
+import { LoopClip } from "../LoopClip";
 import { Photo } from "../Photo";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
@@ -19,13 +20,22 @@ export function Showcase({ t }: { t: Dictionary }) {
           {s.items.map((item, i) => (
             <Reveal as="li" key={item.id} index={i}>
               <article className="postal flex h-full flex-col p-3 pb-6">
-                <Photo
-                  src={item.image.src}
-                  alt={item.image.alt}
-                  caption={item.image.alt}
-                  ratio="1/1"
-                  sizes="(min-width: 1024px) 560px, 100vw"
-                />
+                {item.image.clip ? (
+                  <LoopClip
+                    mp4={item.image.clip.mp4}
+                    webm={item.image.clip.webm}
+                    poster={item.image.src}
+                    label={item.image.alt}
+                  />
+                ) : (
+                  <Photo
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    caption={item.image.alt}
+                    ratio="1/1"
+                    sizes="(min-width: 1024px) 560px, 100vw"
+                  />
+                )}
                 <div className="flex flex-1 flex-col px-3 pt-6 sm:px-5">
                   <div className="flex items-center justify-between gap-4">
                     {item.logo ? (
