@@ -39,10 +39,9 @@ export function Contact({ t }: { t: Dictionary }) {
                       className="group inline-flex items-center gap-3 rounded-full border border-arena-200 bg-white py-2 pl-2 pr-5 transition duration-base ease-warm hover:border-celeste-300 motion-safe:hover:-translate-y-0.5"
                     >
                       <span className="flex size-9 items-center justify-center rounded-full bg-celeste-100 text-celeste-700">
-                        <SocialIcon id={s.id} />
+                        <SocialIcon id={s.id} label={s.label} />
                       </span>
-                      <span className="font-semibold text-tinta-900">{s.label}</span>
-                      <span className="text-small font-normal text-piedra-600">{s.handle}</span>
+                      <span className="font-semibold text-tinta-900">{s.handle}</span>
                     </a>
                   </li>
                 ))}

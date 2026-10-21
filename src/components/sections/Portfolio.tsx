@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 import { Photo } from "../Photo";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
+import { formatPlatform, SocialIcon } from "../SocialIcon";
 
 // Series colours from the guide: Celeste = Alemania, Dulce = comida, Backstein = trámites.
 const accentDot: Record<Accent, string> = {
@@ -76,8 +77,8 @@ export function Portfolio({ t }: { t: Dictionary }) {
                       <span className="text-caption text-leinen-50/60">{site.handle}</span>
                     </div>
                   )}
-                  <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[12px] font-bold uppercase tracking-[.08em] text-tinta-900">
-                    {card.format}
+                  <span className="absolute left-3 top-3 flex size-8 items-center justify-center rounded-full bg-white/95 text-tinta-900">
+                    <SocialIcon id={formatPlatform(card.format)} className="size-4" label={card.format} />
                   </span>
                   <span className="absolute right-3 top-3 rounded-full bg-raps-400 px-2.5 py-1 text-[12px] font-bold text-tinta-900">
                     {views.format(card.views)} {c.viewsLabel}

@@ -3,6 +3,7 @@ import type { Dictionary } from "@/content/es";
 import { Photo } from "../Photo";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
+import { formatPlatform, SocialIcon } from "../SocialIcon";
 
 // Featured brand collaborations: real campaigns only, with what was delivered and a link to the proof.
 export function Showcase({ t }: { t: Dictionary }) {
@@ -50,11 +51,19 @@ export function Showcase({ t }: { t: Dictionary }) {
                   )}
 
                   <ul className="mt-5 flex flex-wrap gap-2">
-                    {item.deliverables.map((d) => (
-                      <li key={d} className="rounded-full bg-celeste-100 px-3 py-1 text-small text-nordsee-900">
-                        {d}
-                      </li>
-                    ))}
+                    {item.deliverables.map((d) => {
+                      // "YouTube Short", "TikTok …", "Instagram …": show the platform mark instead of its name.
+                      const platform = (["YouTube", "TikTok", "Instagram"] as const).find((p) => d.startsWith(p + " "));
+                      return (
+                        <li
+                          key={d}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-celeste-100 px-3 py-1 text-small text-nordsee-900"
+                        >
+                          {platform && <SocialIcon id={formatPlatform(platform)} className="size-3.5" label={platform} />}
+                          {platform ? d.slice(platform.length + 1) : d}
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   <a
