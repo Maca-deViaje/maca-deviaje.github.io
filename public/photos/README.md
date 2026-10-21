@@ -9,4 +9,4 @@ Current images are crops of Macarena's own video covers (TikTok and YouTube), pi
 | `tt-<video id>.jpg` | Frame grabbed from inside that TikTok clip (the cover had burned-in text) |
 
 The 2.2M TikTok Christmas video is a film clip with her caption, so its card shows her hook line as a text tile instead of a photo.
-Collaboration images live in `public/collabs/` (Timekettle: opening scene of her IFA 2025 reel DORF-r9DZGd : the opening scene until the first cut (case opening slowed down, rest at normal speed, 3.1 s), muted loop while on screen (.mp4/.webm), first frame as poster; Borderframes: photo + logo from the borderframes.com repo, square-cropped).
+Collaboration images live in `public/collabs/` (Timekettle: opening scene of her IFA 2025 reel DORF-r9DZGd : the opening scene until the first cut (2.5 s, normal speed), muted loop while on screen (.mp4/.webm), first frame as poster; Borderframes: photo + logo from the borderframes.com repo, square-cropped).
