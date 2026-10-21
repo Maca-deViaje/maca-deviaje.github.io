@@ -7,6 +7,7 @@ import { SocialIcon } from "../SocialIcon";
 export function SocialProof({ t }: { t: Dictionary }) {
   // "78 mil" / "1,2 M" in Spanish, "78.4K" / "1.2M" in English.
   const format = new Intl.NumberFormat(t.locale, { notation: "compact", maximumFractionDigits: 1 });
+  const percent = new Intl.NumberFormat(t.locale, { style: "percent", maximumFractionDigits: 2 });
   return (
     <section aria-label={t.proof.label} className="bg-white">
       <div className="container-wide py-10 lg:py-12">
@@ -20,7 +21,9 @@ export function SocialProof({ t }: { t: Dictionary }) {
                   {item.label}
                 </dt>
                 <dd className="font-display text-m-h2 font-extrabold text-tinta-900 md:text-h2">
-                  {format.format(site.metrics[item.key as keyof typeof site.metrics])}
+                  {item.key === "instagramEngagement"
+                    ? percent.format(site.metrics.instagramEngagement)
+                    : format.format(site.metrics[item.key as keyof typeof site.metrics])}
                 </dd>
               </Reveal>
             );

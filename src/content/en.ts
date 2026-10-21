@@ -59,7 +59,7 @@ export const en: Dictionary = {
     items: [
       { key: "instagram", label: "Instagram followers" },
       { key: "tiktok", label: "TikTok followers" },
-      { key: "youtube", label: "YouTube subscribers" },
+      { key: "instagramEngagement", label: "Instagram engagement rate" },
       { key: "instagramReelPlays", label: "Instagram Reels plays" },
     ],
     base: "Based in Schleswig-Holstein · near Hamburg · available for travel across Europe",
@@ -92,14 +92,15 @@ export const en: Dictionary = {
         text: "Everyday life mixed with getaways. Your destination appears inside a story, not in an ad.",
       },
     ],
-    audienceTitle: "Who follows me",
+    audienceTitle: "My community",
     audienceIntro:
       "Spanish speakers dreaming of travelling to or moving to Europe, Argentines abroad, and people curious about European life. An audience that researches before it books.",
     audience: [
-      { key: "countries", label: "Top countries" },
-      { key: "age", label: "Main age group" },
-      { key: "women", label: "Women" },
+      { key: "engagementRate", label: "Instagram engagement rate", note: "Good" },
+      { key: "likesPerComment", label: "Authentic interaction (likes per comment)", note: "Good" },
+      { key: "travelRankArgentina", label: "Travel ranking · Argentina", note: "" },
     ],
+    insightsSource: "Source: HypeAuditor, October 2026.",
     languagesLabel: "Languages",
     languages: "Rioplatense Spanish · also German and English",
     mediaKit: "Need the full media kit? Ask and I'll send it over.",

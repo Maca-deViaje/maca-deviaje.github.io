@@ -78,7 +78,7 @@ export const es = {
     items: [
       { key: "instagram", label: "seguidores en Instagram" },
       { key: "tiktok", label: "seguidores en TikTok" },
-      { key: "youtube", label: "suscriptores en YouTube" },
+      { key: "instagramEngagement", label: "engagement en Instagram" },
       { key: "instagramReelPlays", label: "reproducciones en Reels" },
     ],
     base: "Base en Schleswig-Holstein · cerca de Hamburgo · disponible para viajes en Europa",
@@ -111,14 +111,15 @@ export const es = {
         text: "Mezclo el día a día con escapadas. Tu destino aparece dentro de una historia, no en un anuncio.",
       },
     ],
-    audienceTitle: "Quién me sigue",
+    audienceTitle: "Mi comunidad",
     audienceIntro:
       "Hispanohablantes que sueñan con viajar o mudarse a Europa, argentinos en el exterior y curiosos de la vida europea. Gente que investiga antes de reservar.",
     audience: [
-      { key: "countries", label: "Países principales" },
-      { key: "age", label: "Edad principal" },
-      { key: "women", label: "Mujeres" },
+      { key: "engagementRate", label: "Engagement en Instagram", note: "Bueno" },
+      { key: "likesPerComment", label: "Interacción auténtica (likes por comentario)", note: "Bueno" },
+      { key: "travelRankArgentina", label: "Ranking en Viajes · Argentina", note: "" },
     ],
+    insightsSource: "Fuente: HypeAuditor, octubre de 2026.",
     languagesLabel: "Idiomas",
     languages: "Español rioplatense · también alemán e inglés",
     mediaKit: "¿Necesitás el media kit completo? Pedímelo y te lo mando.",

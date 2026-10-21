@@ -24,17 +24,22 @@ export const site = {
 
   // Public profile counts, checked 2026-10-21. Formatted per language in SocialProof.
   metrics: {
-    instagram: 78411,
+    instagram: 78850,
     tiktok: 24600,
     youtube: 780,
+    instagramEngagement: 0.0432,
     // Sum of plays over all 381 public reels (median 29.6K, 12 reels over 1M).
     instagramReelPlays: 77122223,
   },
 
-  audience: {
-    countries: "[AR, ES, MX, DE]",
-    age: "[25–34]",
-    women: "[00%]",
+  // Instagram quality signals from HypeAuditor's public report (October 2026). Only the
+  // favourable ones are shown; audience demographics sit behind HypeAuditor's paid tier.
+  insights: {
+    engagementRate: 0.0432, // rated "Good"
+    likesPerComment: 18.16, // rated "Good" (authentic interaction)
+    travelRankArgentina: 224,
+    source: "HypeAuditor",
+    asOf: "2026-10-01",
   },
 
   // Starting prices in EUR, per piece, excl. VAT. Proposed 2026-10-21 from her reach

@@ -8,6 +8,13 @@ const whyIcons = [Sparkles, Repeat2, HeartHandshake, Users];
 
 export function About({ t }: { t: Dictionary }) {
   const a = t.about;
+  const i = site.insights;
+  const formatInsight = (key: string) =>
+    key === "engagementRate"
+      ? new Intl.NumberFormat(t.locale, { style: "percent", maximumFractionDigits: 2 }).format(i.engagementRate)
+      : key === "likesPerComment"
+        ? new Intl.NumberFormat(t.locale, { maximumFractionDigits: 1 }).format(i.likesPerComment)
+        : `#${i.travelRankArgentina}`;
   return (
     <section id="sobre-mi" aria-labelledby="about-title" className="section">
       <div className="container-wide grid gap-14 lg:grid-cols-12 lg:gap-10">
@@ -56,8 +63,13 @@ export function About({ t }: { t: Dictionary }) {
               {a.audience.map((row) => (
                 <div key={row.key} className="flex items-baseline justify-between gap-4 py-3.5">
                   <dt className="text-small text-piedra-600">{row.label}</dt>
-                  <dd className="text-right font-semibold text-tinta-900">
-                    {site.audience[row.key as keyof typeof site.audience]}
+                  <dd className="shrink-0 text-right font-semibold text-tinta-900">
+                    {formatInsight(row.key)}
+                    {row.note && (
+                      <span className="ml-2 rounded-full bg-mate-600/10 px-2 py-0.5 text-[12px] font-bold text-mate-600">
+                        {row.note}
+                      </span>
+                    )}
                   </dd>
                 </div>
               ))}
@@ -69,6 +81,7 @@ export function About({ t }: { t: Dictionary }) {
                 <dd className="text-right font-semibold text-tinta-900">{a.languages}</dd>
               </div>
             </dl>
+            <p className="mt-3 text-caption text-piedra-600">{a.insightsSource}</p>
             <p className="mt-5 text-small">
               <a className="link" href="#contacto">
                 {a.mediaKit}
