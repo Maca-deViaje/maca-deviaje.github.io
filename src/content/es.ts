@@ -168,7 +168,6 @@ export const es = {
         countries: ["fr"],
         views: 10108824,
         date: "2022-04-23",
-        photo: { src: "/photos/ig-CctGAHilZtv.jpg", caption: "la Torre Eiffel al atardecer" },
       },
       {
         pillar: "Familia y cultura",
@@ -181,7 +180,6 @@ export const es = {
         countries: ["ar"],
         views: 5195534,
         date: "2022-09-27",
-        photo: { src: "/photos/ig-CjBCFyzAArB.jpg", caption: "la cobija de tigre" },
       },
       {
         pillar: "Escapadas",
@@ -194,7 +192,6 @@ export const es = {
         countries: ["hu"],
         views: 2941889,
         date: "2022-09-01",
-        photo: { src: "/photos/ig-Ch-P0knrbLW.jpg", caption: "desayuno en el Café New York, Budapest" },
       },
       {
         pillar: "Familia y cultura",
@@ -219,7 +216,6 @@ export const es = {
         countries: ["de"],
         views: 1900000,
         date: "2023-06-16",
-        photo: { src: "/photos/tt-7245234077287124250.jpg", caption: "la famosa ventana alemana" },
       },
     ] as Card[],
     cardCta: "Ver video",
