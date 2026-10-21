@@ -74,8 +74,8 @@ export const es = {
     note: "¡te lo cuento todo, che!",
     photo: {
       src: "/photos/hero.jpg",
-      alt: "Macarena sonriendo, despeinada por el viento, con bufanda rosa junto al mar congelado",
-      caption: "el día que se congeló el mar en Alemania",
+      alt: "Macarena sonriendo con campera amarilla y gorro de lana en un bosque nevado de Alemania",
+      caption: "invierno en Alemania",
     },
   },
 

@@ -49,8 +49,8 @@ export const en: Dictionary = {
     note: "¡te lo cuento todo, che!",
     photo: {
       src: "/photos/hero.jpg",
-      alt: "Macarena smiling, windswept, in a pink scarf by the frozen sea",
-      caption: "the day the sea froze in Germany",
+      alt: "Macarena smiling in a yellow raincoat and wool hat in a snowy German forest",
+      caption: "winter in Germany",
     },
   },
 
