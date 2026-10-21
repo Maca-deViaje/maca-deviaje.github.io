@@ -121,18 +121,6 @@ export const en: Dictionary = {
     ],
     cards: [
       {
-        pillar: "Family & culture",
-        accent: "mate",
-        format: "Reel",
-        title: "Who else is in a relationship with someone from another country?",
-        href: "https://www.instagram.com/reel/CcftOM5l0zp/",
-        stats: { likes: 589246, comments: 2133 },
-        countries: ["ar", "de"],
-        views: 16986950,
-        date: "2022-04-18",
-        photo: { src: "/photos/ig-CcftOM5l0zp.jpg", caption: "Maca and her German partner" },
-      },
-      {
         pillar: "Getaways",
         accent: "nordsee",
         format: "Reel",
@@ -167,18 +155,6 @@ export const en: Dictionary = {
         countries: ["hu"],
         views: 2941889,
         date: "2022-09-01",
-      },
-      {
-        pillar: "Family & culture",
-        accent: "mate",
-        format: "TikTok",
-        title: "Christmas: dressed up in Argentina, pyjamas in Germany",
-        href: "https://www.tiktok.com/@maca.deviaje/video/7176045176555572485",
-        stats: { likes: 241600, comments: 748, shares: 10900, saves: 18683 },
-        countries: ["ar", "de"],
-        views: 2200000,
-        date: "2022-12-12",
-        quote: "Yo después de haber vivido años en otro país volviendo a mi pueblo a pasar navidad",
       },
       {
         pillar: "Life in Germany",

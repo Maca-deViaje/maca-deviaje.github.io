@@ -146,18 +146,6 @@ export const es = {
     ],
     cards: [
       {
-        pillar: "Familia y cultura",
-        accent: "mate",
-        format: "Reel",
-        title: "¿Quién más tiene una relación con alguien de otro país?",
-        href: "https://www.instagram.com/reel/CcftOM5l0zp/",
-        stats: { likes: 589246, comments: 2133 },
-        countries: ["ar", "de"],
-        views: 16986950,
-        date: "2022-04-18",
-        photo: { src: "/photos/ig-CcftOM5l0zp.jpg", caption: "Maca y su pareja alemana" },
-      },
-      {
         pillar: "Escapadas",
         accent: "nordsee",
         format: "Reel",
@@ -192,18 +180,6 @@ export const es = {
         countries: ["hu"],
         views: 2941889,
         date: "2022-09-01",
-      },
-      {
-        pillar: "Familia y cultura",
-        accent: "mate",
-        format: "TikTok",
-        title: "Navidad: en Argentina te re producís, en Alemania la pasan en pijama",
-        href: "https://www.tiktok.com/@maca.deviaje/video/7176045176555572485",
-        stats: { likes: 241600, comments: 748, shares: 10900, saves: 18683 },
-        countries: ["ar", "de"],
-        views: 2200000,
-        date: "2022-12-12",
-        quote: "Yo después de haber vivido años en otro país volviendo a mi pueblo a pasar navidad",
       },
       {
         pillar: "Vida en Alemania",
