@@ -5,12 +5,8 @@ Current images are crops of Macarena's own video covers (TikTok and YouTube), pi
 | File | Source |
 | --- | --- |
 | `hero.jpg`, `og.jpg` | YouTube Short "Se congeló el mar en Alemania" (o2J6pjzI9Z0) |
-| `tt-<video id>.jpg` | Cover of that TikTok video, or a frame grabbed from inside the clip when the cover had burned-in text (1.9M window video, 1.3M tiger-blanket video) |
+| `ig-<reel code>.jpg` | Cover of that Instagram reel (360px wide from Instagram, upscaled — replace with originals from her phone for sharper cards). `ig-CjBCFyzAArB.jpg` reuses the sharper frame from the TikTok cross-post of the same clip |
+| `tt-<video id>.jpg` | Frame grabbed from inside that TikTok clip (the cover had burned-in text) |
 
-The 2.2M Christmas video is a film clip with her caption, so its card shows her hook line as a text tile instead of a photo.
+The 2.2M TikTok Christmas video is a film clip with her caption, so its card shows her hook line as a text tile instead of a photo.
 Collaboration images live in `public/collabs/` (Timekettle Short frame; Borderframes photo + logo from the borderframes.com repo).
-
-Video covers are low resolution (540px wide), so cards look slightly soft on retina screens.
-Replace them with photos from the brand shoot (`Photo Shoot Brief.dc.html` in the `social-assets`
-repo, graded with "Luz del norte") when they're ready — keep the same file names, 4:5 ratio,
-and under ~400 KB. A missing file falls back to a branded placeholder automatically.

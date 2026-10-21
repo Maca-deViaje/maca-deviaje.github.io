@@ -23,8 +23,6 @@ const accentChip: Record<Accent, string> = {
   backstein: "bg-backstein-600 text-white",
 };
 
-const videoHref = (id: string) => `https://www.tiktok.com/@maca.deviaje/video/${id}`;
-
 export function Portfolio({ t }: { t: Dictionary }) {
   const c = t.content;
   const instagram = site.socials.find((s) => s.id === "instagram")!;
@@ -96,7 +94,7 @@ export function Portfolio({ t }: { t: Dictionary }) {
                   <h3 className="mt-3 text-h4 text-tinta-900">{card.title}</h3>
                   <p className="mt-2 text-small font-normal text-piedra-600">{month.format(new Date(card.date))}</p>
                   <a
-                    href={videoHref(card.video)}
+                    href={card.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-auto inline-flex items-center gap-1 pt-4 text-small font-semibold text-celeste-700 transition-colors duration-base ease-warm hover:text-backstein-600"

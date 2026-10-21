@@ -27,7 +27,8 @@ export const site = {
     instagram: 78411,
     tiktok: 24600,
     youtube: 780,
-    tiktokLikes: 1200000,
+    // Sum of plays over all 381 public reels (median 29.6K, 12 reels over 1M).
+    instagramReelPlays: 77122223,
   },
 
   audience: {
@@ -37,7 +38,7 @@ export const site = {
   },
 
   // Starting prices in EUR, per piece, excl. VAT. Proposed 2026-10-21 from her reach
-  // (IG reels ~25K median plays, TikTok ~2K baseline, YouTube 780 subs) and 2026 market
+  // (IG reels 29.6K median plays over 381 reels, TikTok ~2K baseline, YouTube 780 subs) and 2026 market
   // benchmarks (micro-creator Reel €750–5,000, Story €125–1,000). Confirm with Macarena.
   prices: {
     reel: 800, // Instagram Reel + TikTok cross-post
