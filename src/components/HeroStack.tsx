@@ -26,6 +26,15 @@ export function HeroStack({ photos, shuffleLabel }: { photos: HeroPhoto[]; shuff
   const [order, setOrder] = useState(() => photos.map((_, i) => i)); // order[0] is on top
   const [leaving, setLeaving] = useState<number | null>(null);
   const [dealt, setDealt] = useState(false);
+  const [spread, setSpread] = useState(1); // narrower fan on phones so frames stay on screen
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setSpread(mq.matches ? 0.45 : 1);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     const ms = reduce ? 0 : (photos.length * DEAL_STEP + 0.6) * 1000;
@@ -57,7 +66,8 @@ export function HeroStack({ photos, shuffleLabel }: { photos: HeroPhoto[]; shuff
       <div className="relative aspect-[4/5.35]">
         {photos.map((photo, i) => {
           const pos = order.indexOf(i);
-          const pose = POSES[pos % POSES.length];
+          const base = POSES[pos % POSES.length];
+          const pose = { rotate: base.rotate * (0.6 + 0.4 * spread), x: base.x * spread, y: base.y };
           const isTop = pos === 0;
           const isLeaving = leaving === i;
           // Deal from the bottom of the pile up, so the top photo lands last.
