@@ -44,6 +44,8 @@ export const es = {
     ],
     ogTitle: "Viajera argentina en Alemania",
     ogOverline: "Viajes · Vida en Alemania",
+    // Labels under the three numbers on the share image (followers IG, followers TikTok, reel plays).
+    ogStats: ["seguidores en Instagram", "seguidores en TikTok", "reproducciones de reels"],
   },
 
   skip: "Saltar al contenido",

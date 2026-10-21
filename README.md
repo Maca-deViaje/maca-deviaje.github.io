@@ -83,7 +83,7 @@ brand/tokens.json            design tokens (synced)
 public/brand/                favicons + logo SVGs (synced)
 public/photos/               shoot photos (drop-in)
 scripts/sync-brand.mjs       pulls assets from the design-system repo
-src/app/                     layout, ES page, /en page, og-image.png routes, sitemap, robots
+src/app/                     layout, ES page, /en page, og-image.jpg routes (share image), sitemap, robots
 src/components/              Header, ContactForm, Wordmark, Stamp, Photo, Reveal, Button…
 src/components/sections/     Hero, SocialProof, About, Portfolio, Collaborations, Process, Course, Contact, Footer
 src/content/                 site.ts (facts) · es.ts · en.ts (copy)

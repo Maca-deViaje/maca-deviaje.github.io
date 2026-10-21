@@ -1,0 +1,30 @@
+{
+  "id": "/",
+  "name": "maca de viaje · Macarena",
+  "short_name": "maca de viaje",
+  "description": "Creadora de contenido argentina en Alemania. Reels, TikTok y YouTube para destinos y marcas.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#2B6694",
+  "background_color": "#FAF6EF",
+  "icons": [
+    {
+      "src": "/brand/favicon/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/favicon/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/favicon/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

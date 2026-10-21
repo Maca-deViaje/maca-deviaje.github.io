@@ -33,13 +33,15 @@ export function Hero({ t }: { t: Dictionary }) {
               aria-hidden
               className="pointer-events-none absolute -inset-x-5 -top-16 bottom-0 -z-10 bg-gradient-to-t from-leinen-50 from-45% via-leinen-50/90 via-65% to-leinen-50/0 md:-inset-x-8 lg:hidden"
             />
-            {/* Font pair: the name in Bricolage ExtraBold, the role in the brand's handwritten Caveat. */}
+            {/* Phones/tablet: font pair, the name in Bricolage ExtraBold and the role in the brand's handwritten
+                Caveat. Desktop: both lines in Bricolage, "Macarena ·" over the role. */}
             <h1 id="hero-title" className="text-center text-tinta-900 lg:text-left">
-              <span className="block font-display text-[52px] font-extrabold leading-[0.9] tracking-[-0.035em] sm:text-[64px] lg:text-[72px]">
+              <span className="block font-display text-[52px] font-extrabold leading-[0.9] tracking-[-0.035em] sm:text-[64px] lg:text-display">
                 {h.name}
+                <span className="hidden text-celeste-700 lg:inline"> ·</span>
               </span>
-              <span className="sr-only">, </span>
-              <span className="mt-1 block font-hand text-[34px] font-bold leading-none text-celeste-700 sm:text-[42px] lg:mt-2 lg:text-[52px]">
+              <span className="sr-only lg:hidden">, </span>
+              <span className="mt-1 block font-hand text-[34px] font-bold leading-none text-celeste-700 sm:text-[42px] lg:mt-0 lg:font-display lg:text-display lg:text-tinta-900">
                 {h.title}
               </span>
             </h1>

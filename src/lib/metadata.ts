@@ -5,11 +5,11 @@ import { getDictionary, type Locale } from "./i18n";
 export function buildMetadata(locale: Locale): Metadata {
   const t = getDictionary(locale);
   const image = {
-    url: `${t.path}og-image.png`,
+    url: `${t.path}og-image.jpg`,
     width: 1200,
     height: 630,
     alt: `maca de viaje · ${t.meta.ogTitle}`,
-    type: "image/png",
+    type: "image/jpeg",
   };
   return {
     metadataBase: new URL(site.url),
@@ -35,12 +35,13 @@ export function buildMetadata(locale: Locale): Metadata {
     twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description, images: [image.url] },
     icons: {
       icon: [
+        { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
         { url: "/brand/favicon/favicon.svg", type: "image/svg+xml" },
         { url: "/brand/favicon/icon-32.png", sizes: "32x32", type: "image/png" },
       ],
-      apple: "/brand/favicon/icon-180.png",
+      apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
     },
-    manifest: "/brand/favicon/site.webmanifest",
+    manifest: "/site.webmanifest",
     robots: { index: true, follow: true },
   };
 }

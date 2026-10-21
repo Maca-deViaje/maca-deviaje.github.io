@@ -19,6 +19,7 @@ export const en: Dictionary = {
     ],
     ogTitle: "Argentine travel creator in Germany",
     ogOverline: "Travel · Life in Germany",
+    ogStats: ["Instagram followers", "TikTok followers", "reel plays"],
   },
 
   skip: "Skip to content",
