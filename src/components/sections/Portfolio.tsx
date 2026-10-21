@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import type { Accent, Dictionary, Format } from "@/content/es";
+import type { Accent, Dictionary } from "@/content/es";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Photo } from "../Photo";
@@ -22,14 +22,13 @@ const accentChip: Record<Accent, string> = {
   backstein: "bg-backstein-600 text-white",
 };
 
-const formatHref = (format: Format) => {
-  const id = format === "YouTube" ? "youtube" : format === "TikTok" ? "tiktok" : "instagram";
-  return site.socials.find((s) => s.id === id)!.href;
-};
+const videoHref = (id: string) => `https://www.tiktok.com/@maca.deviaje/video/${id}`;
 
 export function Portfolio({ t }: { t: Dictionary }) {
   const c = t.content;
   const instagram = site.socials.find((s) => s.id === "instagram")!;
+  const views = new Intl.NumberFormat(t.locale, { notation: "compact", maximumFractionDigits: 1 });
+  const month = new Intl.DateTimeFormat(t.locale, { month: "short", year: "numeric", timeZone: "UTC" });
   return (
     <section id="contenido" aria-labelledby="content-title" className="section bg-white">
       <div className="container-wide">
@@ -77,9 +76,11 @@ export function Portfolio({ t }: { t: Dictionary }) {
                     {card.pillar}
                   </span>
                   <h3 className="mt-3 text-h4 text-tinta-900">{card.title}</h3>
-                  <p className="mt-2 text-small font-normal text-piedra-600">{card.meta}</p>
+                  <p className="mt-2 text-small font-normal text-piedra-600">
+                    {views.format(card.views)} {c.viewsLabel} · {month.format(new Date(card.date))}
+                  </p>
                   <a
-                    href={formatHref(card.format)}
+                    href={videoHref(card.video)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-auto inline-flex items-center gap-1 pt-4 text-small font-semibold text-celeste-700 transition-colors duration-base ease-warm hover:text-backstein-600"
