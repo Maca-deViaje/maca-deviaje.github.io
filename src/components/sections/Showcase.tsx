@@ -41,59 +41,61 @@ export function Showcase({ t }: { t: Dictionary }) {
                       sizes="(min-width: 1024px) 560px, 100vw"
                     />
                   )}
-                  {/* Product cutout straddling the bottom edge of the media. */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={item.cutout.src}
-                    alt={item.cutout.alt}
-                    loading="lazy"
-                    className={cn(
-                      "pointer-events-none absolute right-2 z-10 h-auto drop-shadow-[0_18px_22px_rgba(36,33,29,.28)] sm:right-4",
-                      item.cutout.wide ? "-bottom-14 w-[52%]" : "-bottom-16 w-[26%]",
-                    )}
-                  />
                 </div>
                 <div className="flex flex-1 flex-col px-3 pt-6 sm:px-5">
-                  <div className={cn("flex flex-col gap-1", item.cutout.wide ? "pr-[52%]" : "pr-[28%]")}>
-                    <span className="flex items-center gap-3">
-                      {item.logo ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={item.logo} alt={item.brand} className="h-8 w-auto" />
-                      ) : (
-                        <p className="font-display text-h3 font-extrabold tracking-[-0.02em] text-tinta-900">{item.brand}</p>
+                  <div className="flow-root">
+                    {/* Product cutout: floats right and just overlaps the bottom of the media; copy wraps around it. */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.cutout.src}
+                      alt={item.cutout.alt}
+                      loading="lazy"
+                      className={cn(
+                        "pointer-events-none relative z-10 float-right -mt-12 mb-3 ml-4 h-auto drop-shadow-[0_18px_22px_rgba(36,33,29,.28)]",
+                        item.cutout.wide ? "w-[46%]" : "w-[24%]",
                       )}
-                      <Flags codes={item.countries} locale={t.locale} className="[&>img]:h-[18px] [&>img]:w-6" />
-                    </span>
-                    <span className="text-small text-piedra-600">{item.period}</span>
+                    />
+                    <div className="flex flex-col gap-1">
+                      <span className="flex items-center gap-3">
+                        {item.logo ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={item.logo} alt={item.brand} className="h-8 w-auto" />
+                        ) : (
+                          <p className="font-display text-h3 font-extrabold tracking-[-0.02em] text-tinta-900">{item.brand}</p>
+                        )}
+                        <Flags codes={item.countries} locale={t.locale} className="[&>img]:h-[18px] [&>img]:w-6" />
+                      </span>
+                      <span className="text-small text-piedra-600">{item.period}</span>
+                    </div>
+                    <h3 className="mt-4 text-h4 text-tinta-900">{item.product}</h3>
+                    <p className="text-small text-piedra-600">{item.context}</p>
+                    <p className="mt-4 text-body text-piedra-600">{item.text}</p>
+
+                    {item.quote && (
+                      <figure className="mt-5 border-l-2 border-raps-400 pl-4">
+                        <blockquote lang="en" className="text-lead text-tinta-900">
+                          “{item.quote}”
+                        </blockquote>
+                        <figcaption className="mt-1 text-small text-piedra-600">{s.quoteLabel}</figcaption>
+                      </figure>
+                    )}
+
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {item.deliverables.map((d) => {
+                        // "YouTube Short", "TikTok …", "Instagram …": show the platform mark instead of its name.
+                        const platform = (["YouTube", "TikTok", "Instagram"] as const).find((p) => d.startsWith(p + " "));
+                        return (
+                          <li
+                            key={d}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-celeste-100 px-3 py-1 text-small text-nordsee-900"
+                          >
+                            {platform && <SocialIcon id={formatPlatform(platform)} className="size-3.5" label={platform} />}
+                            {platform ? d.slice(platform.length + 1) : d}
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </div>
-                  <h3 className="mt-4 text-h4 text-tinta-900">{item.product}</h3>
-                  <p className="text-small text-piedra-600">{item.context}</p>
-                  <p className="mt-4 text-body text-piedra-600">{item.text}</p>
-
-                  {item.quote && (
-                    <figure className="mt-5 border-l-2 border-raps-400 pl-4">
-                      <blockquote lang="en" className="text-lead text-tinta-900">
-                        “{item.quote}”
-                      </blockquote>
-                      <figcaption className="mt-1 text-small text-piedra-600">{s.quoteLabel}</figcaption>
-                    </figure>
-                  )}
-
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {item.deliverables.map((d) => {
-                      // "YouTube Short", "TikTok …", "Instagram …": show the platform mark instead of its name.
-                      const platform = (["YouTube", "TikTok", "Instagram"] as const).find((p) => d.startsWith(p + " "));
-                      return (
-                        <li
-                          key={d}
-                          className="inline-flex items-center gap-1.5 rounded-full bg-celeste-100 px-3 py-1 text-small text-nordsee-900"
-                        >
-                          {platform && <SocialIcon id={formatPlatform(platform)} className="size-3.5" label={platform} />}
-                          {platform ? d.slice(platform.length + 1) : d}
-                        </li>
-                      );
-                    })}
-                  </ul>
 
                   <a
                     href={item.href}
