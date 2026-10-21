@@ -273,7 +273,7 @@ export const es = {
         deliverables: ["Instagram Reels", "YouTube Short", "Códigos de descuento"],
         image: {
           src: "/collabs/timekettle-ifa.jpg",
-          clip: { mp4: "/collabs/timekettle-ifa-open.mp4", webm: "/collabs/timekettle-ifa-open.webm" },
+          clip: { mp4: "/collabs/timekettle-ifa-scene.mp4", webm: "/collabs/timekettle-ifa-scene.webm" },
           alt: "Maca muestra los auriculares Timekettle W4 a cámara frente al stand de Timekettle en IFA Berlín",
         },
         href: "https://www.instagram.com/reel/DORF-r9DZGd/",
