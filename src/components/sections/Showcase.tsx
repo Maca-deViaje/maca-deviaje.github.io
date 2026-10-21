@@ -44,15 +44,18 @@ export function Showcase({ t }: { t: Dictionary }) {
                 </div>
                 <div className="flex flex-1 flex-col px-3 pt-6 sm:px-5">
                   <div className="flow-root">
-                    {/* Product cutout: floats right and just overlaps the bottom of the media; copy wraps around it. */}
+                    {/* Product cutout: floats right, pulled up over the media so every cutout ends 48px into the copy
+                      (taller products overlap more), keeping side-by-side cards aligned. Copy wraps around it. */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={item.cutout.src}
                       alt={item.cutout.alt}
                       loading="lazy"
                       className={cn(
-                        "pointer-events-none relative z-10 float-right -mt-12 mb-3 ml-4 h-auto drop-shadow-[0_18px_22px_rgba(36,33,29,.28)]",
-                        item.cutout.wide ? "w-[52%] sm:w-[46%]" : "w-[32%] sm:w-[24%]",
+                        "pointer-events-none relative z-10 float-right mb-3 ml-4 h-auto drop-shadow-[0_18px_22px_rgba(36,33,29,.28)]",
+                        item.cutout.wide
+                          ? "mt-[calc(48px-35.24%)] w-[52%] sm:mt-[calc(48px-31.18%)] sm:w-[46%]"
+                          : "mt-[calc(48px-50.49%)] w-[32%] sm:mt-[calc(48px-37.87%)] sm:w-[24%]",
                       )}
                     />
                     <div className="flex flex-col gap-1">
