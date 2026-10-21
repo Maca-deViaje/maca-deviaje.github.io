@@ -110,18 +110,24 @@ export function HeroStack({ photos, shuffleLabel }: { photos: HeroPhoto[]; shuff
         })}
       </div>
 
-      <div className="mt-8 flex justify-end">
+      {/* Phones: round icon button on the stack's top corner (clear of the caption). Larger screens: labelled button below. */}
+      <div className="absolute -right-3 -top-4 z-30 sm:static sm:mt-8 sm:flex sm:justify-end">
         <motion.button
           type="button"
           onClick={shuffle}
           disabled={!dealt}
-          className={buttonClass("secondary", "sm")}
+          aria-label={shuffleLabel}
+          className={buttonClass(
+            "secondary",
+            "sm",
+            "size-11 bg-leinen-50 p-0 shadow-postal sm:size-auto sm:bg-transparent sm:px-4 sm:shadow-none",
+          )}
           initial={{ opacity: 0 }}
           animate={{ opacity: dealt ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           <Shuffle className="size-4" strokeWidth={1.75} aria-hidden />
-          {shuffleLabel}
+          <span className="hidden sm:inline">{shuffleLabel}</span>
         </motion.button>
       </div>
       <p className="sr-only" aria-live="polite">
