@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/content/es";
+import { Flags } from "../Flag";
 import { LoopClip } from "../LoopClip";
 import { Photo } from "../Photo";
 import { Reveal } from "../Reveal";
@@ -38,12 +39,15 @@ export function Showcase({ t }: { t: Dictionary }) {
                 )}
                 <div className="flex flex-1 flex-col px-3 pt-6 sm:px-5">
                   <div className="flex items-center justify-between gap-4">
-                    {item.logo ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={item.logo} alt={item.brand} className="h-8 w-auto" />
-                    ) : (
-                      <p className="font-display text-h3 font-extrabold tracking-[-0.02em] text-tinta-900">{item.brand}</p>
-                    )}
+                    <span className="flex items-center gap-3">
+                      {item.logo ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={item.logo} alt={item.brand} className="h-8 w-auto" />
+                      ) : (
+                        <p className="font-display text-h3 font-extrabold tracking-[-0.02em] text-tinta-900">{item.brand}</p>
+                      )}
+                      <Flags codes={item.countries} locale={t.locale} className="[&>img]:h-[18px] [&>img]:w-6" />
+                    </span>
                     <span className="shrink-0 text-small text-piedra-600">{item.period}</span>
                   </div>
                   <h3 className="mt-4 text-h4 text-tinta-900">{item.product}</h3>

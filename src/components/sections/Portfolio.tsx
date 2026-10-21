@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import type { Accent, Dictionary } from "@/content/es";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
+import { Flags } from "../Flag";
 import { Photo } from "../Photo";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
@@ -83,14 +84,17 @@ export function Portfolio({ t }: { t: Dictionary }) {
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col px-2 pt-4">
-                  <span
-                    className={cn(
-                      "self-start rounded-full px-2.5 py-1 text-[12px] font-bold uppercase tracking-[.08em]",
-                      accentChip[card.accent],
-                    )}
-                  >
-                    {card.pillar}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={cn(
+                        "self-start rounded-full px-2.5 py-1 text-[12px] font-bold uppercase tracking-[.08em]",
+                        accentChip[card.accent],
+                      )}
+                    >
+                      {card.pillar}
+                    </span>
+                    <Flags codes={card.countries} locale={t.locale} />
+                  </div>
                   <h3 className="mt-3 text-h4 text-tinta-900">{card.title}</h3>
                   <p className="mt-2 text-small font-normal text-piedra-600">{month.format(new Date(card.date))}</p>
                   <a

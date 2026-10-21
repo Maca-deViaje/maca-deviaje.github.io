@@ -9,6 +9,8 @@ export type Card = {
   format: Format;
   title: string;
   href: string;
+  /** ISO 3166 codes of the countries the video is about (shown as flags). */
+  countries: string[];
   views: number;
   date: string;
   /** Frame or cover from the video. */
@@ -145,6 +147,7 @@ export const es = {
         format: "Reel",
         title: "¿Quién más tiene una relación con alguien de otro país?",
         href: "https://www.instagram.com/reel/CcftOM5l0zp/",
+        countries: ["ar", "de"],
         views: 16986950,
         date: "2022-04-18",
         photo: { src: "/photos/ig-CcftOM5l0zp.jpg", caption: "Maca y su pareja alemana" },
@@ -155,6 +158,7 @@ export const es = {
         format: "Reel",
         title: "Yo lo llamo ✨prioridades✨: París con presupuesto",
         href: "https://www.instagram.com/reel/CctGAHilZtv/",
+        countries: ["fr"],
         views: 10108824,
         date: "2022-04-23",
         photo: { src: "/photos/ig-CctGAHilZtv.jpg", caption: "la Torre Eiffel al atardecer" },
@@ -165,6 +169,7 @@ export const es = {
         format: "Reel",
         title: "Los latinos que tienen esta cobija",
         href: "https://www.instagram.com/reel/CjBCFyzAArB/",
+        countries: [],
         views: 5195534,
         date: "2022-09-27",
         photo: { src: "/photos/ig-CjBCFyzAArB.jpg", caption: "la cobija de tigre" },
@@ -175,6 +180,7 @@ export const es = {
         format: "Reel",
         title: "Café New York, Budapest: cuando te digo «tengo hambre»",
         href: "https://www.instagram.com/reel/Ch-P0knrbLW/",
+        countries: ["hu"],
         views: 2941889,
         date: "2022-09-01",
         photo: { src: "/photos/ig-Ch-P0knrbLW.jpg", caption: "desayuno en el Café New York, Budapest" },
@@ -185,6 +191,7 @@ export const es = {
         format: "TikTok",
         title: "Navidad: en Argentina te re producís, en Alemania la pasan en pijama",
         href: "https://www.tiktok.com/@maca.deviaje/video/7176045176555572485",
+        countries: ["ar", "de"],
         views: 2200000,
         date: "2022-12-12",
         quote: "Yo después de haber vivido años en otro país volviendo a mi pueblo a pasar navidad",
@@ -195,6 +202,7 @@ export const es = {
         format: "TikTok",
         title: "Las ventanas alemanas: un shock cultural canónico",
         href: "https://www.tiktok.com/@maca.deviaje/video/7245234077287124250",
+        countries: ["de"],
         views: 1900000,
         date: "2023-06-16",
         photo: { src: "/photos/tt-7245234077287124250.jpg", caption: "la famosa ventana alemana" },
@@ -266,6 +274,7 @@ export const es = {
     items: [
       {
         id: "timekettle",
+        countries: ["cn"],
         brand: "Timekettle",
         product: "Auriculares traductores W4 y W4 Plus",
         context: "Alianza desde 2025 · IFA Berlín 2025 y 2026",
@@ -284,6 +293,7 @@ export const es = {
       },
       {
         id: "borderframes",
+        countries: ["de"],
         brand: "Borderframes × TRAVLR",
         product: "Marcos de bambú con la forma de cada país",
         context: "Cada marco guarda una foto de tu viaje",
