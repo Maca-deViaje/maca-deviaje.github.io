@@ -55,7 +55,7 @@ export function Showcase({ t }: { t: Dictionary }) {
                         "pointer-events-none relative z-10 float-right mb-3 ml-4 h-auto drop-shadow-[0_18px_22px_rgba(36,33,29,.28)]",
                         item.cutout.wide
                           ? "mt-[calc(48px-35.24%)] w-[52%] sm:mt-[calc(48px-31.18%)] sm:w-[46%]"
-                          : "mt-[calc(48px-50.49%)] w-[32%] sm:mt-[calc(48px-37.87%)] sm:w-[24%]",
+                          : "mt-[calc(48px-40.39%)] w-[25.6%] sm:mt-[calc(48px-30.29%)] sm:w-[19.2%]",
                       )}
                     />
                     <div className="flex flex-col gap-1">
@@ -66,9 +66,11 @@ export function Showcase({ t }: { t: Dictionary }) {
                         ) : (
                           <p className="font-display text-h3 font-extrabold tracking-[-0.02em] text-tinta-900">{item.brand}</p>
                         )}
-                        <Flags codes={item.countries} locale={t.locale} className="[&>img]:h-[18px] [&>img]:w-6" />
                       </span>
-                      <span className="text-small text-piedra-600">{item.period}</span>
+                      <span className="flex items-center gap-2 text-small text-piedra-600">
+                        {item.period}
+                        <Flags codes={item.countries} locale={t.locale} />
+                      </span>
                     </div>
                     <h3 className="mt-4 text-h4 text-tinta-900">{item.product}</h3>
                     <p className="text-small text-piedra-600">{item.context}</p>
