@@ -52,7 +52,7 @@ export function Showcase({ t }: { t: Dictionary }) {
                       loading="lazy"
                       className={cn(
                         "pointer-events-none relative z-10 float-right -mt-12 mb-3 ml-4 h-auto drop-shadow-[0_18px_22px_rgba(36,33,29,.28)]",
-                        item.cutout.wide ? "w-[46%]" : "w-[24%]",
+                        item.cutout.wide ? "w-[52%] sm:w-[46%]" : "w-[32%] sm:w-[24%]",
                       )}
                     />
                     <div className="flex flex-col gap-1">
