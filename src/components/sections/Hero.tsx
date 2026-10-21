@@ -6,7 +6,8 @@ import { RouteMaps } from "../MiniMap";
 import { Stamp } from "../Stamp";
 
 // Phones/tablet: eyebrow → photo stack (sized to the viewport height) → title → CTAs, so the first
-// screen ends on the buttons. Desktop: copy column left, stack right.
+// screen ends on the buttons. On phones the title overlaps the stack's foot over a paper-coloured fade,
+// with the stamp beside it. Desktop: copy column left, stack right.
 export function Hero({ t }: { t: Dictionary }) {
   const h = t.hero;
   return (
@@ -15,12 +16,19 @@ export function Hero({ t }: { t: Dictionary }) {
         {/* On phones this column dissolves (display: contents) so its children can interleave with the stack. */}
         <div className="contents lg:col-span-7 lg:row-start-1 lg:block">
           <p className="eyebrow order-1">{h.overline}</p>
-          <h1 id="hero-title" className="type-display order-3 text-tinta-900 lg:mt-5">
-            {h.name}
-            <span className="text-celeste-700"> ·</span>
-            <br />
-            {h.title}
-          </h1>
+          <div className="relative z-10 order-3 max-sm:-mt-24 max-sm:pt-2 lg:mt-5">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -inset-x-5 -top-20 bottom-0 -z-10 bg-gradient-to-tr [mask-image:linear-gradient(to_bottom,transparent,black_55%)] from-leinen-50 from-40% via-leinen-50/90 via-60% to-leinen-50/0 to-90% sm:hidden"
+            />
+            <h1 id="hero-title" className="type-display text-tinta-900">
+              {h.name}
+              <span className="text-celeste-700"> ·</span>
+              <br />
+              {h.title}
+            </h1>
+            <Stamp className="pointer-events-none absolute -bottom-1 right-0 w-[76px] drop-shadow-sm sm:hidden" />
+          </div>
           <p className="order-4 hidden max-w-[34rem] text-lead text-piedra-600 sm:block lg:mt-6">{h.lead}</p>
           <div className="order-5 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-9">
             <Button href="#colaboraciones" size="lg">
@@ -36,10 +44,10 @@ export function Hero({ t }: { t: Dictionary }) {
           </div>
         </div>
 
-        <div className="relative order-2 mx-auto w-[clamp(170px,calc((100svh-480px)*0.748),78vw)] sm:w-full sm:max-w-[420px] lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:max-w-none">
+        <div className="relative order-2 mx-auto w-[clamp(210px,calc((100svh-390px)*0.748),84vw)] sm:w-full sm:max-w-[420px] lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:max-w-none">
           {/* Stack of framed photos (washi tape on the top one), stamp and the page's one handwritten note. */}
           <HeroStack photos={h.photos} shuffleLabel={h.shuffle} />
-          <Stamp className="pointer-events-none absolute -left-4 bottom-9 z-20 w-16 drop-shadow-sm sm:-left-6 sm:bottom-6 sm:w-28 lg:-left-12" />
+          <Stamp className="pointer-events-none absolute -left-6 bottom-6 z-20 hidden w-28 drop-shadow-sm sm:block lg:-left-12" />
           <p
             className="absolute -right-6 -top-12 z-20 hidden rotate-[-4deg] font-hand text-[26px] font-bold leading-none text-celeste-700 lg:block"
             lang="es"
