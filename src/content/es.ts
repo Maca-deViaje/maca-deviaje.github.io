@@ -72,11 +72,31 @@ export const es = {
     secondary: "Ver mi curso de alemán",
     languages: "Contenido en español · colaboraciones también en alemán e inglés",
     note: "¡te lo cuento todo, che!",
-    photo: {
-      src: "/photos/hero.jpg",
-      alt: "Macarena sonriendo con campera amarilla y gorro de lana en un bosque nevado de Alemania",
-      caption: "invierno en Alemania",
-    },
+    shuffle: "Mezclar fotos",
+    photos: [
+      {
+        src: "/photos/hero-invierno.jpg",
+        alt: "Macarena sonriendo con campera amarilla y gorro de lana en un bosque nevado de Alemania",
+        caption: "invierno en Alemania",
+      },
+      { src: "/photos/hero-berlin.jpg", alt: "Macarena frente a la Puerta de Brandeburgo en Berlín", caption: "Berlín" },
+      {
+        src: "/photos/hero-jujuy.jpg",
+        alt: "Macarena en un pueblo de Jujuy con los cerros de colores detrás",
+        caption: "Jujuy, Argentina",
+      },
+      { src: "/photos/hero-italia.jpg", alt: "Macarena riéndose con un limón en la mano en Italia", caption: "Italia" },
+      {
+        src: "/photos/hero-miami.jpg",
+        alt: "Macarena con anteojos de sol frente al mural de la Calle 8 en Miami",
+        caption: "Miami",
+      },
+      {
+        src: "/photos/hero-erizo.jpg",
+        alt: "Macarena sonriendo con un erizo rescatado en las manos, en su jardín en otoño",
+        caption: "otoño de erizos",
+      },
+    ],
   },
 
   proof: {

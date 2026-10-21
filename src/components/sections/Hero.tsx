@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import type { Dictionary } from "@/content/es";
 import { Button } from "../Button";
 import { RouteMaps } from "../MiniMap";
-import { Photo } from "../Photo";
+import { HeroStack } from "../HeroStack";
 import { Stamp } from "../Stamp";
 
 export function Hero({ t }: { t: Dictionary }) {
@@ -32,22 +32,11 @@ export function Hero({ t }: { t: Dictionary }) {
         </div>
 
         <div className="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:max-w-none">
-          {/* Postcard with washi tape, stamp and the page's one handwritten note. */}
-          <figure className="relative rotate-[1.2deg] rounded-lg border border-arena-200 bg-white p-3 pb-4 shadow-postal">
-            <span className="washi -top-3 left-1/2 -translate-x-1/2 -rotate-3" aria-hidden />
-            <Photo
-              src={h.photo.src}
-              alt={h.photo.alt}
-              caption={h.photo.caption}
-              ratio="4/5"
-              priority
-              sizes="(min-width: 1024px) 40vw, 90vw"
-            />
-            <figcaption className="mt-3 px-1 text-right text-caption text-piedra-600">{h.photo.caption}</figcaption>
-          </figure>
-          <Stamp className="absolute -bottom-8 -left-6 w-24 drop-shadow-sm sm:w-28 lg:-left-12" />
+          {/* Stack of framed photos (washi tape on the top one), stamp and the page's one handwritten note. */}
+          <HeroStack photos={h.photos} shuffleLabel={h.shuffle} />
+          <Stamp className="pointer-events-none absolute bottom-6 -left-6 z-20 w-24 drop-shadow-sm sm:w-28 lg:-left-12" />
           <p
-            className="absolute -right-2 -top-10 rotate-[-4deg] font-hand text-[26px] font-bold leading-none text-celeste-700 sm:-right-6 lg:-top-12"
+            className="absolute -right-2 -top-10 z-20 rotate-[-4deg] font-hand text-[26px] font-bold leading-none text-celeste-700 sm:-right-6 lg:-top-12"
             lang="es"
           >
             {h.note} <span aria-hidden>↓</span>

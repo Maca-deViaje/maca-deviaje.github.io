@@ -47,11 +47,27 @@ export const en: Dictionary = {
     secondary: "See my German course",
     languages: "Content in Spanish · collaborations also in German and English",
     note: "¡te lo cuento todo, che!",
-    photo: {
-      src: "/photos/hero.jpg",
-      alt: "Macarena smiling in a yellow raincoat and wool hat in a snowy German forest",
-      caption: "winter in Germany",
-    },
+    shuffle: "Shuffle photos",
+    photos: [
+      {
+        src: "/photos/hero-invierno.jpg",
+        alt: "Macarena smiling in a yellow raincoat and wool hat in a snowy German forest",
+        caption: "winter in Germany",
+      },
+      { src: "/photos/hero-berlin.jpg", alt: "Macarena in front of the Brandenburg Gate in Berlin", caption: "Berlin" },
+      {
+        src: "/photos/hero-jujuy.jpg",
+        alt: "Macarena in a village in Jujuy with the coloured hills behind her",
+        caption: "Jujuy, Argentina",
+      },
+      { src: "/photos/hero-italia.jpg", alt: "Macarena laughing with a lemon in her hand in Italy", caption: "Italy" },
+      { src: "/photos/hero-miami.jpg", alt: "Macarena in sunglasses in front of the Calle 8 mural in Miami", caption: "Miami" },
+      {
+        src: "/photos/hero-erizo.jpg",
+        alt: "Macarena smiling with a rescued hedgehog in her gloved hands, in her garden in autumn",
+        caption: "hedgehog autumn",
+      },
+    ],
   },
 
   proof: {
