@@ -1,9 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
-import type { Accent, Dictionary } from "@/content/es";
+import { Bookmark, Forward, Heart, MessageCircle, Send } from "lucide-react";
+import type { Accent, Card, Dictionary } from "@/content/es";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Flags } from "../Flag";
-import { Photo } from "../Photo";
+import { LoopClip } from "../LoopClip";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 import { formatPlatform, SocialIcon } from "../SocialIcon";
@@ -27,7 +27,7 @@ const accentChip: Record<Accent, string> = {
 export function Portfolio({ t }: { t: Dictionary }) {
   const c = t.content;
   const instagram = site.socials.find((s) => s.id === "instagram")!;
-  const views = new Intl.NumberFormat(t.locale, { notation: "compact", maximumFractionDigits: 1 });
+  const compact = new Intl.NumberFormat(t.locale, { notation: "compact", maximumFractionDigits: 1 });
   const month = new Intl.DateTimeFormat(t.locale, { month: "short", year: "numeric", timeZone: "UTC" });
   return (
     <section id="contenido" aria-labelledby="content-title" className="section bg-white">
@@ -51,64 +51,34 @@ export function Portfolio({ t }: { t: Dictionary }) {
           </Reveal>
         </div>
 
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        {/* Mobile: swipeable gallery. Tablet/desktop: grid. */}
+        <ul
+          className="-mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-6 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 lg:gap-8 [&::-webkit-scrollbar]:hidden"
+          aria-label={c.title}
+        >
           {c.cards.map((card, i) => (
-            <Reveal as="li" key={card.title} index={i}>
-              <article className="postal group flex h-full flex-col p-3 pb-5">
-                <div className="relative">
-                  {card.photo ? (
-                    <Photo
-                      src={card.photo.src}
-                      caption={card.photo.caption}
-                      ratio="4/5"
-                      sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-                    />
-                  ) : (
-                    // No usable frame in the clip: her hook line on a solid Nordsee block.
-                    <div
-                      className="flex aspect-[4/5] flex-col justify-between rounded-md bg-nordsee-900 p-6 pt-14 text-leinen-50"
-                      lang="es"
-                    >
-                      <span aria-hidden className="font-display text-[72px] leading-[0.6] text-raps-400">
-                        “
-                      </span>
-                      <p className="font-display text-[26px] font-extrabold leading-[1.1] tracking-[-0.02em]">{card.quote}</p>
-                      <span className="text-caption text-leinen-50/60">{site.handle}</span>
-                    </div>
-                  )}
-                  <span className="absolute left-3 top-3 flex size-8 items-center justify-center rounded-full bg-white/95 text-tinta-900">
-                    <SocialIcon id={formatPlatform(card.format)} className="size-4" label={card.format} />
-                  </span>
-                  <span className="absolute right-3 top-3 rounded-full bg-raps-400 px-2.5 py-1 text-[12px] font-bold text-tinta-900">
-                    {views.format(card.views)} {c.viewsLabel}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col px-2 pt-4">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={cn(
-                        "self-start rounded-full px-2.5 py-1 text-[12px] font-bold uppercase tracking-[.08em]",
-                        accentChip[card.accent],
-                      )}
-                    >
-                      {card.pillar}
-                    </span>
-                    <Flags codes={card.countries} locale={t.locale} />
-                  </div>
-                  <h3 className="mt-3 text-h4 text-tinta-900">{card.title}</h3>
-                  <p className="mt-2 text-small font-normal text-piedra-600">{month.format(new Date(card.date))}</p>
-                  <a
-                    href={card.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1 pt-4 text-small font-semibold text-celeste-700 transition-colors duration-base ease-warm hover:text-backstein-600"
+            <Reveal as="li" key={card.href} index={i} className="w-[72%] shrink-0 snap-center sm:w-auto">
+              <a
+                href={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+                aria-label={`${card.title} · ${c.cardCta}`}
+              >
+                <ReelScreen card={card} compact={compact} viewsLabel={c.viewsLabel} />
+                <div className="mt-4 flex flex-wrap items-center gap-2 px-1">
+                  <span
+                    className={cn(
+                      "rounded-full px-2.5 py-1 text-[12px] font-bold uppercase tracking-[.08em]",
+                      accentChip[card.accent],
+                    )}
                   >
-                    {c.cardCta}
-                    <ArrowUpRight className="size-4" strokeWidth={1.75} aria-hidden />
-                    <span className="absolute inset-0" aria-hidden />
-                  </a>
+                    {card.pillar}
+                  </span>
+                  <Flags codes={card.countries} locale={t.locale} />
+                  <span className="text-small font-normal text-piedra-600">{month.format(new Date(card.date))}</span>
                 </div>
-              </article>
+              </a>
             </Reveal>
           ))}
         </ul>
@@ -120,5 +90,83 @@ export function Portfolio({ t }: { t: Dictionary }) {
         </p>
       </div>
     </section>
+  );
+}
+
+// A Reels / TikTok "screen": the real clip full-bleed with the platform's action rail and caption.
+function ReelScreen({ card, compact, viewsLabel }: { card: Card; compact: Intl.NumberFormat; viewsLabel: string }) {
+  const platform = formatPlatform(card.format);
+  const tiktok = platform === "tiktok";
+  const actions = [
+    { icon: Heart, value: card.stats.likes, filled: true },
+    { icon: MessageCircle, value: card.stats.comments },
+    { icon: tiktok ? Forward : Send, value: card.stats.shares },
+    ...(tiktok ? [{ icon: Bookmark, value: card.stats.saves }] : []),
+  ];
+  return (
+    <div className="relative aspect-[9/16] overflow-hidden rounded-[22px] bg-tinta-900 shadow-postal ring-1 ring-tinta-900/10 transition duration-slow ease-warm motion-safe:group-hover:-translate-y-1 motion-safe:group-hover:-rotate-[.6deg]">
+      {card.reel ? (
+        <LoopClip mp4={card.reel.mp4} poster={card.reel.poster} label={card.title} className="absolute inset-0 h-full" />
+      ) : card.photo ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={card.photo.src}
+          alt={card.photo.caption}
+          loading="lazy"
+          className="kenburns absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        // No usable footage (film clip): her hook line, as the on-screen text would read.
+        <div className="absolute inset-0 flex items-center bg-nordsee-900 px-6" lang="es">
+          <p className="font-display text-[24px] font-extrabold leading-[1.12] tracking-[-0.02em] text-leinen-50">
+            <span aria-hidden className="mb-3 block font-display text-[64px] leading-[0.5] text-raps-400">
+              “
+            </span>
+            {card.quote}
+          </p>
+        </div>
+      )}
+
+      {/* Legibility scrims, like the apps use. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/45 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/75 via-black/30 to-transparent"
+      />
+
+      {/* Top bar */}
+      <div className="absolute inset-x-3 top-3 flex items-center justify-between text-white">
+        <span className="flex items-center gap-1.5 text-[13px] font-bold drop-shadow">
+          <SocialIcon id={platform} className="size-4" label={card.format} />
+          {tiktok ? "TikTok" : "Reels"}
+        </span>
+        <span className="rounded-full bg-raps-400 px-2.5 py-1 text-[12px] font-bold text-tinta-900">
+          {compact.format(card.views)} {viewsLabel}
+        </span>
+      </div>
+
+      {/* Action rail */}
+      <ul className="absolute bottom-24 right-2 flex flex-col items-center gap-3.5 text-white">
+        {actions.map(({ icon: Icon, value, filled }, k) => (
+          <li key={k} className="flex flex-col items-center gap-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,.6)]">
+            <Icon className={cn("size-7", filled && "fill-current")} strokeWidth={1.75} aria-hidden />
+            {value !== undefined && <span className="text-[12px] font-semibold">{compact.format(value)}</span>}
+          </li>
+        ))}
+      </ul>
+
+      {/* Caption */}
+      <div className="absolute bottom-4 left-3 right-14 text-white">
+        <p className="flex items-center gap-2 text-[14px] font-semibold drop-shadow">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/favicon/icon-192.png" alt="" className="size-7 rounded-full ring-2 ring-white/80" />
+          {site.handle.replace("@", "")}
+        </p>
+        <h3 className="mt-2 line-clamp-2 font-sans text-[14px] font-medium leading-snug drop-shadow">{card.title}</h3>
+      </div>
+    </div>
   );
 }

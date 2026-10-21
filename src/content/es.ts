@@ -13,6 +13,10 @@ export type Card = {
   countries: string[];
   views: number;
   date: string;
+  /** Public counts from the platform (shares/saves only where the platform shows them). */
+  stats: { likes: number; comments: number; shares?: number; saves?: number };
+  /** Short muted loop from the real video, with a matching poster frame. */
+  reel?: { mp4: string; poster: string };
   /** Frame or cover from the video. */
   photo?: { src: string; caption: string };
   /** Shown as a branded text tile when the clip has no usable frame. */
@@ -147,6 +151,7 @@ export const es = {
         format: "Reel",
         title: "¿Quién más tiene una relación con alguien de otro país?",
         href: "https://www.instagram.com/reel/CcftOM5l0zp/",
+        stats: { likes: 589246, comments: 2133 },
         countries: ["ar", "de"],
         views: 16986950,
         date: "2022-04-18",
@@ -158,6 +163,8 @@ export const es = {
         format: "Reel",
         title: "Yo lo llamo ✨prioridades✨: París con presupuesto",
         href: "https://www.instagram.com/reel/CctGAHilZtv/",
+        stats: { likes: 503701, comments: 1128 },
+        reel: { mp4: "/reels/ig-CctGAHilZtv.mp4", poster: "/reels/ig-CctGAHilZtv.jpg" },
         countries: ["fr"],
         views: 10108824,
         date: "2022-04-23",
@@ -169,6 +176,8 @@ export const es = {
         format: "Reel",
         title: "Los latinos que tienen esta cobija",
         href: "https://www.instagram.com/reel/CjBCFyzAArB/",
+        stats: { likes: 372274, comments: 4075 },
+        reel: { mp4: "/reels/ig-CjBCFyzAArB.mp4", poster: "/reels/ig-CjBCFyzAArB.jpg" },
         countries: ["ar"],
         views: 5195534,
         date: "2022-09-27",
@@ -180,6 +189,8 @@ export const es = {
         format: "Reel",
         title: "Café New York, Budapest: cuando te digo «tengo hambre»",
         href: "https://www.instagram.com/reel/Ch-P0knrbLW/",
+        stats: { likes: 59097, comments: 1775 },
+        reel: { mp4: "/reels/ig-Ch-P0knrbLW.mp4", poster: "/reels/ig-Ch-P0knrbLW.jpg" },
         countries: ["hu"],
         views: 2941889,
         date: "2022-09-01",
@@ -191,6 +202,7 @@ export const es = {
         format: "TikTok",
         title: "Navidad: en Argentina te re producís, en Alemania la pasan en pijama",
         href: "https://www.tiktok.com/@maca.deviaje/video/7176045176555572485",
+        stats: { likes: 241600, comments: 748, shares: 10900, saves: 18683 },
         countries: ["ar", "de"],
         views: 2200000,
         date: "2022-12-12",
@@ -202,6 +214,8 @@ export const es = {
         format: "TikTok",
         title: "Las ventanas alemanas: un shock cultural canónico",
         href: "https://www.tiktok.com/@maca.deviaje/video/7245234077287124250",
+        stats: { likes: 50800, comments: 485, shares: 1240, saves: 2001 },
+        reel: { mp4: "/reels/tt-7245234077287124250.mp4", poster: "/reels/tt-7245234077287124250.jpg" },
         countries: ["de"],
         views: 1900000,
         date: "2023-06-16",

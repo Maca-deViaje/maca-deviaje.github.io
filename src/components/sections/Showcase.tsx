@@ -31,6 +31,7 @@ export function Showcase({ t }: { t: Dictionary }) {
                       webm={item.image.clip.webm}
                       poster={item.image.src}
                       label={item.image.alt}
+                      className="aspect-square rounded-md bg-arena-200"
                     />
                   ) : (
                     <Photo

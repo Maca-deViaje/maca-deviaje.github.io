@@ -41,7 +41,7 @@ export function LoopClip({
   return (
     <video
       ref={ref}
-      className={cn("aspect-square w-full rounded-md bg-arena-200 object-cover", className)}
+      className={cn("w-full object-cover", className)}
       poster={poster}
       muted
       loop={!once}

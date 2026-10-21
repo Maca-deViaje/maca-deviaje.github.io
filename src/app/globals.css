@@ -84,6 +84,19 @@
     background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 14px);
   }
 
+  /* Slow zoom for still covers inside reel cards (disabled by prefers-reduced-motion). */
+  .kenburns {
+    animation: kenburns 14s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.08) translate(-1.5%, -1%);
+    }
+  }
+
   .select-chevron {
     background: #fff
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B6256' stroke-width='1.75' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
