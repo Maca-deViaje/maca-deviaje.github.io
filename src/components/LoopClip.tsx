@@ -3,19 +3,22 @@
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/cn";
 
-// Short silent loop (a few seconds from one of her videos). Plays only while on screen;
-// with prefers-reduced-motion (or without JS) it stays on the poster frame.
+// Short silent clip from one of her videos. Plays only while on screen; with `once` it plays
+// from the start each time it scrolls into view and rests on its last frame. With
+// prefers-reduced-motion (or without JS) it stays on the poster frame.
 export function LoopClip({
   mp4,
   webm,
   poster,
   label,
+  once = false,
   className,
 }: {
   mp4: string;
   webm?: string;
   poster: string;
   label: string;
+  once?: boolean;
   className?: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -24,12 +27,16 @@ export function LoopClip({
     const video = ref.current;
     if (!video || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const observer = new IntersectionObserver(
-      ([entry]) => (entry.isIntersecting ? video.play().catch(() => {}) : video.pause()),
+      ([entry]) => {
+        if (!entry.isIntersecting) return video.pause();
+        if (once) video.currentTime = 0;
+        video.play().catch(() => {});
+      },
       { threshold: 0.25 },
     );
     observer.observe(video);
     return () => observer.disconnect();
-  }, []);
+  }, [once]);
 
   return (
     <video
@@ -37,7 +44,7 @@ export function LoopClip({
       className={cn("aspect-square w-full rounded-md bg-arena-200 object-cover", className)}
       poster={poster}
       muted
-      loop
+      loop={!once}
       playsInline
       preload="metadata"
       aria-label={label}

@@ -254,7 +254,7 @@ export const en: Dictionary = {
         deliverables: ["Instagram Reels", "YouTube Short", "Discount codes"],
         image: {
           src: "/collabs/timekettle-ifa.jpg",
-          clip: { mp4: "/collabs/timekettle-ifa.mp4", webm: "/collabs/timekettle-ifa.webm" },
+          clip: { mp4: "/collabs/timekettle-ifa-open.mp4", webm: "/collabs/timekettle-ifa-open.webm" },
           alt: "Maca holds the Timekettle W4 earbuds up to the camera in front of the Timekettle stand at IFA Berlin",
         },
         href: "https://www.instagram.com/reel/DORF-r9DZGd/",

@@ -26,6 +26,7 @@ export function Showcase({ t }: { t: Dictionary }) {
                     webm={item.image.clip.webm}
                     poster={item.image.src}
                     label={item.image.alt}
+                    once
                   />
                 ) : (
                   <Photo
