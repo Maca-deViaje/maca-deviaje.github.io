@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import type { Dictionary } from "@/content/es";
 import { Button } from "../Button";
+import { RouteMaps } from "../MiniMap";
 import { Photo } from "../Photo";
 import { Stamp } from "../Stamp";
 
@@ -27,6 +28,7 @@ export function Hero({ t }: { t: Dictionary }) {
             </Button>
           </div>
           <p className="mt-6 text-small text-piedra-600">{h.languages}</p>
+          <RouteMaps className="mt-8 text-piedra-600" />
         </div>
 
         <div className="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:max-w-none">

@@ -2,6 +2,7 @@ import { HeartHandshake, Languages, Repeat2, Sparkles, Users } from "lucide-reac
 import type { Dictionary } from "@/content/es";
 import { site } from "@/content/site";
 import { Reveal } from "../Reveal";
+import { SectionMap } from "../MiniMap";
 import { SectionHeading } from "../SectionHeading";
 
 const whyIcons = [Sparkles, Repeat2, HeartHandshake, Users];
@@ -16,7 +17,8 @@ export function About({ t }: { t: Dictionary }) {
         ? new Intl.NumberFormat(t.locale, { maximumFractionDigits: 1 }).format(i.likesPerComment)
         : `#${i.travelRankArgentina}`;
   return (
-    <section id="sobre-mi" aria-labelledby="about-title" className="section">
+    <section id="sobre-mi" aria-labelledby="about-title" className="section relative isolate overflow-hidden">
+      <SectionMap country="ar" side="left" />
       <div className="container-wide grid gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
           <Reveal>

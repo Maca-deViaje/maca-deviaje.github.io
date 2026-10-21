@@ -2,6 +2,7 @@ import { ArrowUp } from "lucide-react";
 import type { Dictionary } from "@/content/es";
 import { site } from "@/content/site";
 import { SocialIcon } from "../SocialIcon";
+import { RouteMaps } from "../MiniMap";
 import { Stamp } from "../Stamp";
 import { Wordmark } from "../Wordmark";
 
@@ -18,6 +19,7 @@ export function Footer({ t }: { t: Dictionary }) {
           >
             {site.email}
           </a>
+          <RouteMaps className="mt-8 text-leinen-50/70" />
         </div>
 
         <nav aria-label="Footer" className="md:col-span-3">

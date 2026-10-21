@@ -3,13 +3,15 @@ import type { Dictionary } from "@/content/es";
 import { site } from "@/content/site";
 import { ContactForm } from "../ContactForm";
 import { Reveal } from "../Reveal";
+import { SectionMap } from "../MiniMap";
 import { SectionHeading } from "../SectionHeading";
 import { SocialIcon } from "../SocialIcon";
 
 export function Contact({ t }: { t: Dictionary }) {
   const c = t.contact;
   return (
-    <section id="contacto" aria-labelledby="contact-title" className="section">
+    <section id="contacto" aria-labelledby="contact-title" className="section relative isolate overflow-hidden">
+      <SectionMap country="de" side="left" />
       <div className="container-wide grid gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <Reveal>

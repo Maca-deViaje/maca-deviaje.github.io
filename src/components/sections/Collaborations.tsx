@@ -2,6 +2,7 @@ import { ArrowRight, Check, Clapperboard, Landmark, MapPinned, ShoppingBag, Moni
 import type { Dictionary, ServiceIcon } from "@/content/es";
 import { site } from "@/content/site";
 import { Button } from "../Button";
+import { SectionMap } from "../MiniMap";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 
@@ -17,7 +18,8 @@ export function Collaborations({ t }: { t: Dictionary }) {
   const c = t.collabs;
   const eur = new Intl.NumberFormat(t.locale, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   return (
-    <section id="colaboraciones" aria-labelledby="collabs-title" className="section">
+    <section id="colaboraciones" aria-labelledby="collabs-title" className="section relative isolate overflow-hidden">
+      <SectionMap country="de" side="right" />
       <div className="container-wide">
         <Reveal>
           <SectionHeading id="collabs-title" number={c.number} overline={c.overline} title={c.title} intro={c.intro} />

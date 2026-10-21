@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/content/es";
 import { Flags } from "../Flag";
 import { LoopClip } from "../LoopClip";
+import { SectionMap } from "../MiniMap";
 import { Photo } from "../Photo";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
@@ -11,7 +12,8 @@ import { formatPlatform, SocialIcon } from "../SocialIcon";
 export function Showcase({ t }: { t: Dictionary }) {
   const s = t.showcase;
   return (
-    <section aria-labelledby="showcase-title" className="section bg-white">
+    <section aria-labelledby="showcase-title" className="section relative isolate overflow-hidden bg-white">
+      <SectionMap country="ar" side="right" />
       <div className="container-wide">
         <Reveal>
           <SectionHeading id="showcase-title" number={s.number} overline={s.overline} title={s.title} />
