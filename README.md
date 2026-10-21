@@ -20,16 +20,23 @@ Copy `.env.example` to `.env.local` and set:
 
 | Variable | What it does |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Public URL, used for canonical links, hreflang, OG and the sitemap. Default `https://macadeviaje.com` |
+| `NEXT_PUBLIC_SITE_URL` | Public URL, used for canonical links, hreflang, OG and the sitemap. Default `https://macadeviaje.com` (CI sets it from the `SITE_URL` variable) |
 | `NEXT_PUBLIC_FORM_ENDPOINT` | Optional. Any endpoint that accepts JSON POSTs (Formspree, Basin, Getform…). Without it, the form opens a pre-filled email to hola@macadeviaje.com |
 
 ## Deploy
 
-The build is plain static files in `out/`, so it runs on any static host.
+The site is live at **https://maca-deviaje.github.io/** and deploys on free GitHub Pages. Every push to `main` runs `.github/workflows/deploy.yml`, which does `npm ci`, then `npm run build`, then publishes `out/`. You can also rerun it by hand from the Actions tab.
 
-- **Vercel (recommended):** import the repo and add the two env vars. `vercel.json` makes sure the generated OG images are served as `image/png`.
-- **Netlify / Cloudflare Pages:** build command `npm run build`, output directory `out`. `public/_headers` covers the OG content type.
-- Point the `macadeviaje.com` domain at the host, then submit `/sitemap.xml` in Google Search Console.
+Optional repository variables (Settings → Secrets and variables → Actions → Variables):
+
+| Variable | What it does |
+| --- | --- |
+| `SITE_URL` | Public URL used for canonical links, hreflang, OG and the sitemap. Defaults to `https://maca-deviaje.github.io` |
+| `FORM_ENDPOINT` | Contact form backend, e.g. a Formspree URL. Without it, the form opens a pre-filled email |
+
+**Custom domain later (`macadeviaje.com`):** add the domain in Settings → Pages, create the DNS records GitHub shows you, set `SITE_URL` to `https://macadeviaje.com`, then rerun the workflow. After that, submit `/sitemap.xml` in Google Search Console.
+
+The build is plain static files, so it would also run on any other static host (output directory `out`).
 
 ## Where to edit things
 
@@ -74,7 +81,7 @@ brand/tokens.json            design tokens (synced)
 public/brand/                favicons + logo SVGs (synced)
 public/photos/               shoot photos (drop-in)
 scripts/sync-brand.mjs       pulls assets from the design-system repo
-src/app/                     layout, ES page, /en page, OG images, sitemap, robots
+src/app/                     layout, ES page, /en page, og-image.png routes, sitemap, robots
 src/components/              Header, ContactForm, Wordmark, Stamp, Photo, Reveal, Button…
 src/components/sections/     Hero, SocialProof, About, Portfolio, Collaborations, Process, Course, Contact, Footer
 src/content/                 site.ts (facts) · es.ts · en.ts (copy)

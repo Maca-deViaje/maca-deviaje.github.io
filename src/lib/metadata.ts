@@ -4,6 +4,7 @@ import { getDictionary, type Locale } from "./i18n";
 
 export function buildMetadata(locale: Locale): Metadata {
   const t = getDictionary(locale);
+  const image = { url: `${t.path}og-image.png`, width: 1200, height: 630, alt: `maca de viaje · ${t.meta.ogTitle}`, type: "image/png" };
   return {
     metadataBase: new URL(site.url),
     title: t.meta.title,
@@ -23,8 +24,9 @@ export function buildMetadata(locale: Locale): Metadata {
       url: t.path,
       locale: locale === "es" ? "es_AR" : "en_US",
       alternateLocale: locale === "es" ? ["en_US"] : ["es_AR"],
+      images: [image],
     },
-    twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description },
+    twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description, images: [image.url] },
     icons: {
       icon: [
         { url: "/brand/favicon/favicon.svg", type: "image/svg+xml" },
